@@ -451,6 +451,13 @@ class Component extends DCLogic {
     this.onScroll();
     this.arm();
     this.raiseCurtain();
+    // Web fonts (Newsreader/Archivo) can still be swapping in when the above
+    // onScroll() runs, which shifts hero text height and throws off the
+    // hero-film's getBoundingClientRect() read — locking the scrub onto the
+    // wrong starting frame with nothing to correct it until the visitor
+    // actually scrolls. Re-settle once layout is guaranteed final.
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.onScroll());
+    window.addEventListener('load', this.onScroll);
   }
 
   componentDidUpdate() { this.arm(); this.onScroll(); }
@@ -458,6 +465,7 @@ class Component extends DCLogic {
   componentWillUnmount() {
     window.removeEventListener('resize', this.onResize);
     window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('load', this.onScroll);
     if (this.io) this.io.disconnect();
     if (this.filmRaf) cancelAnimationFrame(this.filmRaf);
     if (this.filmCache) this.filmCache.forEach((bmp) => bmp.close());
