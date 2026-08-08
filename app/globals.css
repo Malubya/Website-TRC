@@ -1,0 +1,254 @@
+/* Design tokens — ported 1:1 from the original design system
+   (_ds/…/tokens/*.css). Font family tokens are overridden below by the
+   next/font CSS variables set on <html> in layout.tsx. */
+:root {
+  --color-architectural-white: #f7f5f1;
+  --color-travertine: #d8cbb8;
+  --color-charcoal-steel: #2b2c2e;
+  --color-aged-bronze: #8c6239;
+  --color-walnut: #5c4433;
+  --color-graphite-glass: #6e7a80;
+  --color-deep-copper: #b5651d;
+
+  --surface-primary: var(--color-architectural-white);
+  --surface-secondary: var(--color-travertine);
+  --surface-inverse: var(--color-charcoal-steel);
+  --text-primary: var(--color-charcoal-steel);
+  --text-inverse: var(--color-architectural-white);
+  --text-muted: #2b2c2ea6;
+  --accent-primary: var(--color-aged-bronze);
+  --accent-secondary: var(--color-walnut);
+  --link-default: var(--color-graphite-glass);
+  --link-hover: var(--color-charcoal-steel);
+  --accent-signature: var(--color-deep-copper);
+  --border-default: #2b2c2e26;
+  --border-inverse: #f7f5f133;
+
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-archivo), Helvetica, Arial, sans-serif;
+
+  --text-hero: clamp(3rem, 7vw, 6.5rem);
+  --text-h1: clamp(2.25rem, 4vw, 3.75rem);
+  --text-h2: clamp(1.75rem, 2.6vw, 2.5rem);
+  --text-h3: 1.5rem;
+  --text-lead: 1.25rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-caption: 0.75rem;
+
+  --tracking-caption: 0.12em;
+  --tracking-nav: 0.06em;
+  --leading-tight: 1.05;
+  --leading-heading: 1.15;
+  --leading-body: 1.6;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --container-max: 1440px;
+  --gutter: max(clamp(20px, 5vw, 72px), (100% - 1600px) / 2);
+
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --shadow-card: none;
+  --shadow-elevated: 0 1px 0 var(--border-default);
+  --ease-editorial: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-slow: 0.8s;
+  --duration-medium: 0.5s;
+  --duration-fast: 0.25s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--color-aged-bronze);
+  color: var(--color-architectural-white);
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes maskUp {
+  from {
+    transform: translateY(115%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cueSlide {
+  0% {
+    transform: translateY(-100%);
+  }
+  60% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Scroll-reveal — see components/Reveal.tsx. Starts hidden only once JS has
+   armed it (data-armed), so content is never invisible without JS/before
+   hydration. */
+[data-reveal] {
+  transition:
+    opacity 0.95s var(--ease-editorial),
+    transform 0.95s var(--ease-editorial);
+}
+[data-reveal][data-armed="true"] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+[data-reveal][data-in-view="true"] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Hero scroll-film ("The Long Exposure") — desktop + motion-ok only;
+   mobile/reduced-motion get the static fallback strip instead. */
+#hero-film {
+  position: relative;
+  height: 100svh;
+}
+#hero-film-fallback {
+  display: block;
+}
+@media (min-width: 1080px) and (prefers-reduced-motion: no-preference) {
+  #hero-film {
+    height: 340vh;
+  }
+  #hero-film-fallback {
+    display: none;
+  }
+}
+
+.footer-link:hover {
+  opacity: 1 !important;
+}
+
+.hero-cta-primary {
+  background: var(--color-aged-bronze);
+  color: var(--color-architectural-white);
+  padding: 17px 34px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.35s;
+}
+.hero-cta-primary:hover {
+  background: var(--color-walnut);
+}
+
+.hero-cta-ghost {
+  border: 1px solid rgba(247, 245, 241, 0.5);
+  color: var(--color-architectural-white);
+  padding: 17px 34px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background-color 0.35s,
+    color 0.35s;
+}
+.hero-cta-ghost:hover {
+  background: var(--color-architectural-white);
+  color: var(--color-charcoal-steel);
+}
+
+/* Project card (Work section) — image zooms ~3% under a fixed frame on hover. */
+.project-card-img {
+  transition: transform 1.2s var(--ease-editorial);
+}
+.project-card:hover .project-card-img {
+  transform: scale(1.035);
+}
+
+/* Archive table row — nudges right and reveals the arrow on hover. */
+.archive-row {
+  padding-left: 0;
+  transition: padding-left 0.45s var(--ease-editorial);
+}
+.archive-row:hover {
+  padding-left: 14px;
+}
+.arch-arrow {
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.archive-row:hover .arch-arrow {
+  opacity: 1;
+}
+
+/* Services grid card — dark fill rises from the bottom on hover. */
+.svc-card {
+  position: relative;
+  overflow: hidden;
+}
+.svc-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-charcoal-steel);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.6s var(--ease-editorial);
+}
+.svc-card:hover .svc-fill {
+  transform: scaleY(1);
+}
+.svc-num,
+.svc-h,
+.svc-p {
+  transition: color 0.5s;
+}
+.svc-card:hover .svc-num,
+.svc-card:hover .svc-h,
+.svc-card:hover .svc-p {
+  color: var(--color-architectural-white) !important;
+}

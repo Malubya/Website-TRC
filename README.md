@@ -4,7 +4,7 @@
 Kampala, Uganda.
 
 <p align="center">
-  <img src="assets/readme/face-of-code.png" alt="A photorealistic human face, its skin, eyes, and features rendered entirely from dense glowing code and numerals in aged bronze and copper tones" width="480" />
+  <img src="docs/face-of-code.png" alt="A photorealistic human face, its skin, eyes, and features rendered entirely from dense glowing code and numerals in aged bronze and copper tones" width="480" />
 </p>
 
 *Every pixel of that face is code — numerals and syntax standing in for skin, light, and shadow. Same principle as the build: precision close up, a whole face at a distance.*
@@ -13,39 +13,39 @@ Kampala, Uganda.
 
 ## What this is
 
-The full marketing site for **TRC Contractors**: a hero scroll-film, practice statement, materials showcase, project grid, services, process, testimonials, a case-study detail page, and a client portal login — all hand-built as dependency-free HTML, driven by a small custom design-system runtime.
+The full marketing site for **TRC Contractors**: a scroll-scrubbed hero film, practice statement, materials
+showcase, project grid, services, process, a contact form, a case-study detail page, and a client portal
+login — built as a [Next.js](https://nextjs.org) (App Router) + TypeScript app.
 
-No build step. No framework. Open a file, it runs.
+## Routes
 
-## Live pages
-
-| File | Route | Purpose |
+| Route | File | Purpose |
 |---|---|---|
-| [`Website.dc.html`](Website.dc.html) | Homepage | Hero film, practice, materials, work, services, process, testimonials, CTA |
-| [`ProjectDetail.dc.html`](ProjectDetail.dc.html) | Case study | Highland Residence — single-project deep dive |
-| [`Login.html`](Login.html) | `/Login.html` | Client portal sign-in |
+| `/` | [`app/page.tsx`](app/page.tsx) | Homepage — hero film, practice, materials, work, services, process, contact |
+| `/work/highland-residence` | [`app/work/highland-residence/page.tsx`](app/work/highland-residence/page.tsx) | Case study — Highland Residence deep dive |
+| `/login` | [`app/login/page.tsx`](app/login/page.tsx) | Client portal sign-in |
 
 ## Running it locally
 
-The site is static, but the hero scroll-film and image slots are easiest to preview through a tiny no-cache dev server (so edits show up on refresh without a hard reload):
-
 ```bash
-python _nocache_server.py
+npm install
+npm run dev
 ```
 
-Then open `http://localhost:8000/Website.dc.html`. Any static server (`npx serve`, VS Code Live Server, etc.) works too — there's nothing to compile.
+Then open `http://localhost:3000`. `npm run build && npm run start` serves the production build.
 
 ## Tech stack
 
-- **Structure** — semantic HTML5, single-file pages (`.dc.html`)
-- **Behavior** — vanilla JS (`support.js`, `image-slot.js`, `ds-base.js`) — no framework, no bundler
-- **Styling** — CSS custom properties as design tokens, scoped inline styles
-- **Type** — [Newsreader](https://fonts.google.com/specimen/Newsreader) (display serif) + [Archivo](https://fonts.google.com/specimen/Archivo) (body grotesk), via Google Fonts
-- **Motion** — slow, deliberate easing (`0.5–0.8s`, `cubic-bezier(.4,0,.2,1)`) — a scroll-driven hero film with a static fallback for mobile / reduced-motion
+- **Framework** — [Next.js](https://nextjs.org) 15 (App Router), [React](https://react.dev) 19, TypeScript
+- **Styling** — CSS custom properties as design tokens ([`app/globals.css`](app/globals.css)) + CSS Modules for scoped component styles; no CSS framework
+- **Type** — [Newsreader](https://fonts.google.com/specimen/Newsreader) (display serif) + [Archivo](https://fonts.google.com/specimen/Archivo) (body grotesk), loaded via `next/font/google`
+- **Motion** — slow, deliberate easing (`0.5–0.8s`, `cubic-bezier(.4,0,.2,1)`) — a canvas-scrubbed hero film (349-frame sequence, off-thread decode via `createImageBitmap`, manual scroll-pin) with a static fallback for mobile / reduced-motion; scroll-reveal via `IntersectionObserver`
 
 ## Design system
 
-Source of truth lives in [`_ds/`](_ds/trc-contractors-design-system-3a4b20d3-d96c-403d-8681-08c6fa2a5270) — tokens, guidelines, and six core components (`Button`, `Footer`, `Nav`, `ProjectCard`, `SectionHeading`, `Tag`).
+Token source of truth lives in [`app/globals.css`](app/globals.css), ported from the original design system
+(archived in [`legacy-static/_ds/`](legacy-static/_ds)) — six component patterns (`Button`, `Footer`, `Nav`,
+`ProjectCard`, `SectionHeading`, `Tag`) are now real components under [`components/`](components).
 
 **Palette**
 
@@ -59,25 +59,37 @@ Source of truth lives in [`_ds/`](_ds/trc-contractors-design-system-3a4b20d3-d96
 | `--color-graphite-glass` | `#6E7A80` | Links |
 | `--color-deep-copper` | `#B5651D` | Signature accent |
 
-**Principles** — flat surfaces (no shadows, near-zero radius), generous whitespace (5vw gutters, 96–128px section rhythm), motion used sparingly and slowly. Full rationale in [`_ds/.../guidelines`](_ds/trc-contractors-design-system-3a4b20d3-d96c-403d-8681-08c6fa2a5270/guidelines).
+**Principles** — flat surfaces (no shadows, near-zero radius), generous whitespace (5vw gutters, 96–128px section rhythm), motion used sparingly and slowly.
 
 ## Structure
 
 ```
 .
-├── Website.dc.html            # Homepage
-├── ProjectDetail.dc.html      # Case study page
-├── Login.html                 # Client portal
-├── ds-base.js                 # Design-system runtime base
-├── image-slot.js              # Responsive image-slot handling
-├── support.js                 # Shared page behavior
-├── favicon.png
-├── _nocache_server.py         # Local dev server, no-cache headers
-├── assets/
-│   ├── film/                  # Hero scroll-film — master.mp4 + frame sequence
-│   ├── imagery/                # Hero + case-study photography
-│   └── logos/                  # Symbol marks
-└── _ds/                       # Design system: tokens, guidelines, components
+├── app/
+│   ├── layout.tsx              # Root layout — fonts, metadata
+│   ├── globals.css             # Design tokens, keyframes, base styles
+│   ├── page.tsx                # Homepage
+│   ├── work/highland-residence/
+│   │   └── page.tsx            # Case study page
+│   └── login/
+│       ├── page.tsx            # Client portal sign-in
+│       ├── layout.tsx          # Route metadata (page itself is a client component)
+│       └── login.module.css
+├── components/                 # Nav, Curtain, Footer, HeroFilm, Reveal, Counter,
+│                                # SectionHeading, Practice/Materials/Work/Services/
+│                                # Process/Contact sections
+├── public/
+│   ├── favicon.png
+│   └── assets/
+│       ├── film/                # Hero scroll-film — master.mp4 + 349-frame sequence
+│       ├── imagery/              # Hero + case-study photography
+│       └── logos/                # Symbol marks
+├── docs/
+│   └── face-of-code.png        # README hero image (not served by the app)
+└── legacy-static/               # Archived pre-Next.js site (.dc.html pages + the
+                                  # proprietary dc-runtime that rendered them, plus
+                                  # the original _ds/ design-system source) — kept
+                                  # for reference, not used by the app
 ```
 
 ## Credits
