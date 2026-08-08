@@ -3,27 +3,11 @@
 **Design. Build. Roof.** One accountable team, one architectural idea, carried from structure through to skin.
 Kampala, Uganda.
 
-```
-     ╭──────────────────────────────╮
-     │        const TRC = {}        │
-     ╰──────────────┬───────────────╯
-                     │
-            ╔════════╧════════╗
-           ╱   ▲▲▲▲▲▲▲▲▲▲▲▲▲   ╲      <hardhat brand="aged-bronze" />
-          ╱  ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲  ╲
-         │═══════════════════════│    // brim: --radius-none, no shadows
-         │  ┌────┐       ┌────┐  │
-         │  │ 01 │       │ 01 │  │    eyes:  <ProjectCard viewed={2} />
-         │  └────┘       └────┘  │
-         │           △           │    nose:  border-top: triangle
-         │         ‿‿‿‿‿         │    mouth: .smile { ease: editorial }
-         │                       │
-          ╲   { built: true }   ╱     // status: shipped, on schedule
-           ╲─────────────────────╲
-            ╚═══════════════════╝
-```
+<p align="center">
+  <img src="assets/readme/face-of-code.png" alt="A photorealistic human face, its skin, eyes, and features rendered entirely from dense glowing code and numerals in aged bronze and copper tones" width="480" />
+</p>
 
-*A face built the way we build everything else — measured, load-bearing, and finished on time.*
+*Every pixel of that face is code — numerals and syntax standing in for skin, light, and shadow. Same principle as the build: precision close up, a whole face at a distance.*
 
 ---
 
