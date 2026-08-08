@@ -1,0 +1,232 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/core/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Newsreader|Archivo))/i]",
+        "message": "Font not provided by the design system. Available: Newsreader, Archivo."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|size|children|onClick|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant, size, children, onClick."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|ghost|link)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'ghost' | 'link'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:md|sm)$/]",
+        "message": "<Button> size must be one of 'md' | 'sm'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Footer'] > JSXAttribute > JSXIdentifier[name!=/^(?:logo|key|ref|className|style|children)$/]",
+        "message": "<Footer> doesn't accept that prop. Declared props: logo."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Nav'] > JSXAttribute > JSXIdentifier[name!=/^(?:logo|transparent|links|key|ref|className|style|children)$/]",
+        "message": "<Nav> doesn't accept that prop. Declared props: logo, transparent, links."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ProjectCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|number|title|category|href|key|ref|className|style|children)$/]",
+        "message": "<ProjectCard> doesn't accept that prop. Declared props: image, number, title, category, href."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute > JSXIdentifier[name!=/^(?:eyebrow|title|lead|align|inverse|key|ref|className|style|children)$/]",
+        "message": "<SectionHeading> doesn't accept that prop. Declared props: eyebrow, title, lead, align, inverse."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute[name.name='align'] > Literal[value!=/^(?:left|center)$/]",
+        "message": "<SectionHeading> align must be one of 'left' | 'center'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|tone|key|ref|className|style|children)$/]",
+        "message": "<Tag> doesn't accept that prop. Declared props: children, tone."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:default|inverse|signature)$/]",
+        "message": "<Tag> tone must be one of 'default' | 'inverse' | 'signature'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "Footer": {
+        "replaces": []
+      },
+      "Nav": {
+        "replaces": []
+      },
+      "ProjectCard": {
+        "replaces": []
+      },
+      "SectionHeading": {
+        "replaces": []
+      },
+      "Tag": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent-primary",
+      "--accent-secondary",
+      "--accent-signature",
+      "--border-default",
+      "--border-inverse",
+      "--color-aged-bronze",
+      "--color-architectural-white",
+      "--color-charcoal-steel",
+      "--color-deep-copper",
+      "--color-graphite-glass",
+      "--color-travertine",
+      "--color-walnut",
+      "--container-max",
+      "--duration-fast",
+      "--duration-medium",
+      "--duration-slow",
+      "--ease-editorial",
+      "--font-body",
+      "--font-display",
+      "--gutter",
+      "--leading-body",
+      "--leading-heading",
+      "--leading-tight",
+      "--link-default",
+      "--link-hover",
+      "--radius-none",
+      "--radius-sm",
+      "--shadow-card",
+      "--shadow-elevated",
+      "--space-1",
+      "--space-10",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-7",
+      "--space-8",
+      "--space-9",
+      "--surface-inverse",
+      "--surface-primary",
+      "--surface-secondary",
+      "--text-body",
+      "--text-caption",
+      "--text-h1",
+      "--text-h2",
+      "--text-h3",
+      "--text-hero",
+      "--text-inverse",
+      "--text-lead",
+      "--text-muted",
+      "--text-primary",
+      "--text-small",
+      "--tracking-caption",
+      "--tracking-nav"
+    ],
+    "tokenKinds": {
+      "--color-architectural-white": "color",
+      "--color-travertine": "color",
+      "--color-charcoal-steel": "color",
+      "--color-aged-bronze": "color",
+      "--color-walnut": "color",
+      "--color-graphite-glass": "color",
+      "--color-deep-copper": "color",
+      "--surface-primary": "color",
+      "--surface-secondary": "color",
+      "--surface-inverse": "color",
+      "--text-primary": "font",
+      "--text-inverse": "font",
+      "--text-muted": "font",
+      "--accent-primary": "color",
+      "--accent-secondary": "color",
+      "--link-default": "color",
+      "--link-hover": "color",
+      "--accent-signature": "color",
+      "--border-default": "color",
+      "--border-inverse": "color",
+      "--font-display": "font",
+      "--font-body": "font",
+      "--text-hero": "font",
+      "--text-h1": "font",
+      "--text-h2": "font",
+      "--text-h3": "font",
+      "--text-lead": "font",
+      "--text-body": "font",
+      "--text-small": "font",
+      "--text-caption": "font",
+      "--tracking-caption": "font",
+      "--tracking-nav": "font",
+      "--leading-tight": "font",
+      "--leading-heading": "font",
+      "--leading-body": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-7": "spacing",
+      "--space-8": "spacing",
+      "--space-9": "spacing",
+      "--space-10": "spacing",
+      "--container-max": "spacing",
+      "--gutter": "spacing",
+      "--radius-none": "radius",
+      "--radius-sm": "radius",
+      "--shadow-card": "shadow",
+      "--shadow-elevated": "shadow",
+      "--ease-editorial": "other",
+      "--duration-slow": "other",
+      "--duration-medium": "other",
+      "--duration-fast": "other"
+    },
+    "fontFamilies": [
+      "Archivo",
+      "Newsreader"
+    ]
+  }
+}

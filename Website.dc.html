@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>TRC Contractors — Design, Build, Roof | Kampala, Uganda</title>
+<meta name="description" content="TRC Contractors designs, builds, and roofs with one accountable team — every project carried from structure through to skin. Based in Kampala, Uganda.">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:title" content="TRC Contractors — Design, Build, Roof">
+<meta property="og:description" content="Every project treated as a single architectural idea, carried from structure through to skin — drawn, built, and roofed by one team. Kampala, Uganda.">
+<meta property="og:image" content="assets/imagery/hero-hillside-golden-hour.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300;1,6..72,400&family=Archivo:wght@400;500;600&display=swap">
+<script src="./ds-base.js"></script>
+<script src="./image-slot.js"></script>
+<style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#F7F5F1;-webkit-font-smoothing:antialiased}::selection{background:#8C6239;color:#F7F5F1}@keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}@keyframes maskUp{from{transform:translateY(115%)}to{transform:translateY(0)}}@keyframes kenBurns{from{transform:scale(1.0)}to{transform:scale(1.12)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes drawDown{from{transform:scaleY(0)}to{transform:scaleY(1)}}@keyframes cueSlide{0%{transform:translateY(-100%)}60%{transform:translateY(100%)}100%{transform:translateY(100%)}}</style>
+<style>
+/* Hero scroll-film ("The Long Exposure") — desktop + motion-ok only; mobile/reduced-motion get the static fallback strip instead. */
+#hero-film{position:relative;height:100svh}
+#hero-film-fallback{display:block}
+@media (min-width:1080px) and (prefers-reduced-motion: no-preference){
+  #hero-film{height:340vh}
+  #hero-film-fallback{display:none}
+}
+</style>
+</helmet>
+<div style="font-family:'Archivo',Helvetica,sans-serif;color:#2B2C2E;background:#F7F5F1;overflow-x:hidden">
+
+<div id="curtain" style="position:fixed;inset:0;z-index:100;background:#2B2C2E;display:flex;align-items:center;justify-content:center;transition:opacity .7s cubic-bezier(.16,1,.3,1),visibility .7s">
+<div style="text-align:center;animation:fadeIn .8s ease both">
+<img src="assets/logos/trc-symbol-white.png" alt="" style="height:44px;width:auto;display:block;margin:0 auto 22px">
+<div style="width:120px;height:1px;background:rgba(247,245,241,.25);overflow:hidden;margin:0 auto"><div id="curtain-bar" style="height:1px;background:#8C6239;width:0%;transition:width 1.1s cubic-bezier(.4,0,.2,1)"></div></div>
+</div>
+</div>
+
+<nav id="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:50">
+<div id="nav-plate" style="position:absolute;inset:0;background:#F7F5F1;border-bottom:1px solid rgba(43,44,46,.14);opacity:0;transition:opacity .45s cubic-bezier(.4,0,.2,1)"></div>
+<div id="scroll-rail" style="position:absolute;top:0;left:0;height:2px;width:0%;background:#8C6239;z-index:2"></div>
+<div id="nav-inner" style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:24px max(clamp(20px,5vw,72px),(100% - 1600px) / 2);transition:padding .45s cubic-bezier(.4,0,.2,1)">
+<a href="#top" onClick="{{ goHome }}" style="display:flex;align-items:center;gap:13px;text-decoration:none">
+<img id="nav-mark" src="assets/logos/trc-symbol-white.png" alt="" style="height:30px;width:auto;display:block">
+<span id="nav-word" style="font-size:14px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#F7F5F1;white-space:nowrap">TRC Contractors</span>
+</a>
+<sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;align-items:center;gap:34px;margin-left:auto;padding-left:48px">
+<a href="#practice" data-navlink="practice" style="position:relative;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#F7F5F1;padding-bottom:3px" style-hover="opacity:.62">Practice</a>
+<a href="#materials" data-navlink="materials" style="position:relative;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#F7F5F1;padding-bottom:3px" style-hover="opacity:.62">Materials</a>
+<a href="#work" data-navlink="work" style="position:relative;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#F7F5F1;padding-bottom:3px" style-hover="opacity:.62">Work</a>
+<a href="#services" data-navlink="services" style="position:relative;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#F7F5F1;padding-bottom:3px" style-hover="opacity:.62">Services</a>
+<a href="#process" data-navlink="process" style="position:relative;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#F7F5F1;padding-bottom:3px" style-hover="opacity:.62">Process</a>
+<a href="Login.html" style="position:relative;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#F7F5F1;padding-bottom:3px" style-hover="opacity:.62">Portal Login</a>
+<a id="nav-cta" href="#contact" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#F7F5F1;border:1px solid rgba(247,245,241,.45);padding:12px 24px;white-space:nowrap;transition:background-color .3s,border-color .3s" style-hover="background:#8C6239;border-color:#8C6239">Start a Project</a>
+</div>
+</sc-if>
+<sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;align-items:center;gap:14px">
+<a href="Login.html" style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#F7F5F1;white-space:nowrap">Portal</a>
+<a id="nav-cta-m" href="#contact" style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#F7F5F1;border:1px solid rgba(247,245,241,.45);padding:10px 16px;white-space:nowrap">Enquire</a>
+</div>
+</sc-if>
+</div>
+</nav>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div id="top">
+
+<div id="hero-film">
+<section id="hero-visual" style="position:absolute;top:0;left:0;right:0;height:100svh;min-height:640px;overflow:hidden;background:#2B2C2E">
+<canvas id="film-canvas" style="position:absolute;inset:0;width:100%;height:100%;display:block;background:#2B2C2E url(assets/imagery/hero-hillside-golden-hour.png) center/cover"></canvas>
+<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(43,44,46,.9),rgba(43,44,46,.62) 30%,rgba(43,44,46,.18) 62%,rgba(43,44,46,.3))"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(43,44,46,.58),rgba(43,44,46,.1) 55%,transparent)"></div>
+<div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);pointer-events:none">
+<div style="border-right:1px solid rgba(247,245,241,.10)"></div>
+<div style="border-right:1px solid rgba(247,245,241,.10)"></div>
+<div style="border-right:1px solid rgba(247,245,241,.10)"></div>
+<div></div>
+</div>
+<div style="position:absolute;left:max(clamp(20px,5vw,72px),(100% - 1600px) / 2);right:max(clamp(20px,5vw,72px),(100% - 1600px) / 2);bottom:clamp(104px,15vh,168px);color:#F7F5F1">
+<div style="overflow:hidden;padding-bottom:2px"><div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;opacity:.85;animation:maskUp 1s cubic-bezier(.16,1,.3,1) both;animation-delay:.15s"><span style="display:inline-block;width:34px;height:1px;background:#8C6239"></span>Established 2002 · Design · Build · Roof</div></div>
+<h1 style="font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(2.5rem,5.4vw,5.25rem);line-height:1;letter-spacing:-.02em;margin:20px 0 0;max-width:14ch">
+<span style="display:block;overflow:hidden;padding-bottom:.06em"><span style="display:block;animation:maskUp 1.15s cubic-bezier(.16,1,.3,1) both;animation-delay:.3s">We design.</span></span>
+<span style="display:block;overflow:hidden;padding-bottom:.06em"><span style="display:block;animation:maskUp 1.15s cubic-bezier(.16,1,.3,1) both;animation-delay:.42s">We build.</span></span>
+<span style="display:block;overflow:hidden;padding-bottom:.06em"><span style="display:block;font-style:italic;color:#F7F5F1;animation:maskUp 1.15s cubic-bezier(.16,1,.3,1) both;animation-delay:.54s">We roof.</span></span>
+</h1>
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px;margin-top:34px">
+<p style="max-width:42ch;font-size:clamp(15px,1.1vw,17px);line-height:1.65;opacity:.82;margin:0;animation:riseIn 1.1s cubic-bezier(.16,1,.3,1) both;animation-delay:.8s">Every project treated as a single architectural idea, carried from structure through to skin — drawn, built, and roofed by one team.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;animation:riseIn 1.1s cubic-bezier(.16,1,.3,1) both;animation-delay:.92s">
+<a href="#work" style="background:#8C6239;color:#F7F5F1;padding:17px 34px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background-color .35s" style-hover="background:#5C4433">Selected Work</a>
+<a href="#contact" style="border:1px solid rgba(247,245,241,.5);color:#F7F5F1;padding:17px 34px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background-color .35s,color .35s" style-hover="background:#F7F5F1;color:#2B2C2E">Start a Project</a>
+</div>
+</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;border-top:1px solid rgba(247,245,241,.22);display:flex;flex-wrap:wrap;color:#F7F5F1;animation:fadeIn 1.2s ease both;animation-delay:1.1s">
+<div style="flex:1 1 200px;padding:20px clamp(20px,5vw,32px) 20px max(clamp(20px,5vw,72px),(100% - 1600px) / 2);border-right:1px solid rgba(247,245,241,.22)"><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.55">Discipline</div><div style="font-size:14px;margin-top:7px;opacity:.92">Design · Construction · Envelope</div></div>
+<div style="flex:1 1 200px;padding:20px clamp(20px,5vw,32px);border-right:1px solid rgba(247,245,241,.22)"><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.55">Materials</div><div style="font-size:14px;margin-top:7px;opacity:.92">Travertine · Steel · Walnut · Copper</div></div>
+<div style="flex:1 1 200px;padding:20px max(clamp(20px,5vw,72px),(100% - 1600px) / 2) 20px clamp(20px,5vw,32px);display:flex;align-items:center;justify-content:space-between;gap:16px"><div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.55">Currently</div><div style="font-size:14px;margin-top:7px;opacity:.92">Accepting 2027 commissions</div></div><div style="width:1px;height:34px;overflow:hidden;background:rgba(247,245,241,.2)"><div style="width:1px;height:34px;background:#8C6239;animation:cueSlide 2.6s cubic-bezier(.4,0,.2,1) infinite"></div></div></div>
+</div>
+</section>
+</div>
+
+<div id="hero-film-fallback" style="padding:clamp(40px,7vw,64px) max(clamp(20px,5vw,72px),(100% - 1600px) / 2);background:#F7F5F1">
+<div data-reveal="" style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;opacity:.5;margin-bottom:28px"><span style="display:inline-block;width:28px;height:1px;background:#8C6239"></span>The Journey</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px">
+<div data-reveal="" style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#2B2C2E"><img src="assets/imagery/highland-exterior.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><div style="position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#F7F5F1"><span style="display:inline-block;width:14px;height:1px;background:#8C6239"></span>01 — Design</div></div>
+<div data-reveal="" style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#2B2C2E"><img src="assets/imagery/highland-interior.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><div style="position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#F7F5F1"><span style="display:inline-block;width:14px;height:1px;background:#8C6239"></span>02 — Build</div></div>
+<div data-reveal="" style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#2B2C2E"><img src="assets/imagery/material-detail-copper-stone.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"><div style="position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#F7F5F1">03 — Roof<span style="display:inline-block;width:14px;height:1px;background:#B5651D;order:-1"></span></div></div>
+</div>
+</div>
+
+<section id="practice" style="padding:clamp(80px,12vw,180px) max(clamp(20px,5vw,72px),(100% - 1600px) / 2);background:#F7F5F1">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(36px,6vw,96px);align-items:center">
+<div data-reveal="">
+<div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;opacity:.5"><span style="display:inline-block;width:28px;height:1px;background:#8C6239"></span>The Practice</div>
+<h2 style="font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(2.1rem,4vw,3.9rem);line-height:1.08;letter-spacing:-.015em;margin:24px 0 0;max-width:14ch;text-wrap:pretty">Restraint is what makes a building feel <span style="font-style:italic;color:#8C6239">expensive</span>.</h2>
+<p style="font-size:17px;line-height:1.75;opacity:.72;max-width:52ch;margin:30px 0 0;text-wrap:pretty">We work in stone, steel, timber, and copper. Structure, envelope, and roof are drawn and delivered by one team, so the detail you approve at design stage is the detail that gets built.</p>
+<div style="display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,64px);margin-top:48px;padding-top:34px;border-top:1px solid rgba(43,44,46,.15)">
+<div><div style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:38px;line-height:1" data-count="24">24</div><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.5;margin-top:9px">Years building</div></div>
+<div><div style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:38px;line-height:1" data-count="100" data-suffix="%">100%</div><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.5;margin-top:9px">In-house delivery</div></div>
+<div><div style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:38px;line-height:1" data-count="1">1</div><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.5;margin-top:9px">Contract, one contact</div></div>
+</div>
+</div>
+<div data-reveal="" style="position:relative">
+<div style="position:relative;aspect-ratio:4/5;overflow:hidden;min-height:380px">
+<img src="assets/imagery/highland-interior.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+</div>
+<div style="position:absolute;top:-9px;left:-9px;width:22px;height:22px;border-top:1px solid #8C6239;border-left:1px solid #8C6239"></div>
+<div style="position:absolute;bottom:-9px;right:-9px;width:22px;height:22px;border-bottom:1px solid #8C6239;border-right:1px solid #8C6239"></div>
+<div style="margin-top:16px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.45">Fig. 01 — Highland Residence, interior volume</div>
+</div>
+</div>
+</section>
+
+<section id="materials" style="position:relative;padding:clamp(80px,12vw,170px) max(clamp(20px,5vw,72px),(100% - 1600px) / 2);background:#F7F5F1;overflow:hidden">
+<div style="position:absolute;inset:0"><img src="assets/imagery/material-detail-copper-stone.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<div style="position:absolute;inset:0;background:rgba(247,245,241,.90)"></div>
+<div style="position:relative">
+<div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
+<div>
+<div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;opacity:.5"><span style="display:inline-block;width:28px;height:1px;background:#8C6239"></span>Materials</div>
+<h2 style="font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(2rem,3.8vw,3.5rem);line-height:1.1;letter-spacing:-.015em;margin:22px 0 0;max-width:17ch">A palette of four, used honestly</h2>
+</div>
+<p style="max-width:34ch;font-size:15px;line-height:1.7;opacity:.65;margin:0">Nothing is applied as finish. Every material in a TRC building is doing structural or weathering work.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,72px);align-items:start;margin-top:clamp(44px,6vw,80px)">
+<div data-reveal="" style="border-top:1px solid rgba(43,44,46,.18)">
+<div data-material="0" data-img="assets/imagery/hero-hillside-golden-hour.png" data-spec="Quarried block, honed face · Load-bearing" style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:22px 0;border-bottom:1px solid rgba(43,44,46,.14);cursor:default;transition:padding-left .4s cubic-bezier(.16,1,.3,1)">
+<div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:11px;letter-spacing:.18em;opacity:.4">01</span><span style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.1">Travertine</span></div>
+<span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.45">Structure</span>
+</div>
+<div data-material="1" data-img="assets/imagery/highland-exterior.png" data-spec="Blackened mild steel · Exposed frame &amp; glazing" style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:22px 0;border-bottom:1px solid rgba(43,44,46,.14);cursor:default;transition:padding-left .4s cubic-bezier(.16,1,.3,1)">
+<div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:11px;letter-spacing:.18em;opacity:.4">02</span><span style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.1">Blackened Steel</span></div>
+<span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.45">Frame</span>
+</div>
+<div data-material="2" data-img="assets/imagery/highland-interior.png" data-spec="Kiln-dried European walnut · Joinery &amp; soffits" style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:22px 0;border-bottom:1px solid rgba(43,44,46,.14);cursor:default;transition:padding-left .4s cubic-bezier(.16,1,.3,1)">
+<div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:11px;letter-spacing:.18em;opacity:.4">03</span><span style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.1">Walnut</span></div>
+<span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.45">Interior</span>
+</div>
+<div data-material="3" data-img="assets/imagery/material-detail-copper-stone.png" data-spec="0.7mm standing-seam copper · Left to patinate" style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:22px 0;border-bottom:1px solid rgba(43,44,46,.14);cursor:default;transition:padding-left .4s cubic-bezier(.16,1,.3,1)">
+<div style="display:flex;align-items:baseline;gap:18px"><span style="font-size:11px;letter-spacing:.18em;color:#B5651D">04</span><span style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.1">Deep Copper</span></div>
+<span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#B5651D">Roof</span>
+</div>
+<div style="display:flex;align-items:center;gap:12px;padding-top:22px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.4">Hover a material</div>
+</div>
+<div data-reveal="" style="position:relative">
+<div style="position:relative;aspect-ratio:1/1;min-height:320px;overflow:hidden;background:#2B2C2E">
+<img id="mat-img" src="assets/imagery/hero-hillside-golden-hour.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:opacity .5s cubic-bezier(.16,1,.3,1),transform 1.2s cubic-bezier(.16,1,.3,1)">
+</div>
+<div style="display:flex;justify-content:space-between;gap:16px;margin-top:16px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.5">
+<span id="mat-spec" style="transition:opacity .35s">Quarried block, honed face · Load-bearing</span>
+<span id="mat-index">01 / 04</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="work" style="padding:clamp(80px,12vw,160px) 0 0;background:#2B2C2E;color:#F7F5F1">
+<div data-reveal="" style="padding:0 max(clamp(20px,5vw,72px),(100% - 1600px) / 2);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px">
+<div>
+<div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;opacity:.6"><span style="display:inline-block;width:28px;height:1px;background:#8C6239"></span>Selected Work</div>
+<h2 style="font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(2rem,3.8vw,3.5rem);line-height:1.1;letter-spacing:-.015em;margin:22px 0 0">Recent projects</h2>
+</div>
+<span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.5">2023 — 2026</span>
+</div>
+<div style="margin-top:clamp(40px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2px;background:rgba(247,245,241,.18)">
+<a href="#top" onClick="{{ openProject }}" data-reveal="" style="grid-column:1/-1;position:relative;display:block;text-decoration:none;overflow:hidden;aspect-ratio:16/9;min-height:360px;background:#2B2C2E">
+<img class="zoom" src="assets/imagery/highland-exterior.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.16,1,.3,1)">
+<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(43,44,46,.78),transparent 58%)"></div>
+<div style="position:absolute;left:clamp(20px,4vw,52px);bottom:clamp(24px,4vw,52px);right:clamp(20px,4vw,52px);color:#F7F5F1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:18px">
+<div>
+<div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.75">01 — Luxury Residential</div>
+<h3 style="font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(1.9rem,3.4vw,3rem);line-height:1.05;margin:12px 0 8px">The Highland Residence</h3>
+<div style="font-size:14px;opacity:.78">Hillside site · Travertine, steel, copper · Completed 2025</div>
+</div>
+<span style="display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid #8C6239;padding-bottom:5px">View case study <span style="color:#8C6239">→</span></span>
+</div>
+</a>
+</div>
+<!-- Two more project slots (image-slot trc-project-02 / -03) were here, both
+     "Project name pending" fabricated placeholders — removed rather than shown
+     as real work. Add them back once there are two more real completed
+     projects with real names/photos. -->
+<sc-if value="{{ showArchive }}" hint-placeholder-val="{{ true }}">
+<div style="padding:clamp(56px,7vw,96px) max(clamp(20px,5vw,72px),(100% - 1600px) / 2) clamp(72px,10vw,140px)">
+<div data-reveal="" style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;opacity:.5;padding-bottom:20px;border-bottom:1px solid rgba(247,245,241,.18)">Archive</div>
+<div data-reveal="" data-archive-row="" style="display:grid;grid-template-columns:70px 1.6fr 1fr 1fr 40px;gap:16px;align-items:baseline;padding:22px 0;border-bottom:1px solid rgba(247,245,241,.12);transition:padding-left .45s cubic-bezier(.16,1,.3,1)"><span style="font-size:12px;opacity:.45">2025</span><span style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(1.1rem,1.6vw,1.4rem)">The Highland Residence</span><span style="font-size:13px;opacity:.6">Luxury residential</span><span style="font-size:13px;opacity:.6">Hillside</span><span class="arch-arrow" style="font-size:14px;color:#8C6239;opacity:0;transition:opacity .35s">→</span></div>
+<div data-reveal="" data-archive-row="" style="display:grid;grid-template-columns:70px 1.6fr 1fr 1fr 40px;gap:16px;align-items:baseline;padding:22px 0;border-bottom:1px solid rgba(247,245,241,.12);transition:padding-left .45s cubic-bezier(.16,1,.3,1)"><span style="font-size:12px;opacity:.45">2024</span><span style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(1.1rem,1.6vw,1.4rem)">Copper Barn Conversion</span><span style="font-size:13px;opacity:.6">Restoration</span><span style="font-size:13px;opacity:.6">Rural</span><span class="arch-arrow" style="font-size:14px;color:#8C6239;opacity:0;transition:opacity .35s">→</span></div>
+<div data-reveal="" data-archive-row="" style="display:grid;grid-template-columns:70px 1.6fr 1fr 1fr 40px;gap:16px;align-items:baseline;padding:22px 0;border-bottom:1px solid rgba(247,245,241,.12);transition:padding-left .45s cubic-bezier(.16,1,.3,1)"><span style="font-size:12px;opacity:.45">2024</span><span style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(1.1rem,1.6vw,1.4rem)">Slate Court Offices</span><span style="font-size:13px;opacity:.6">Commercial</span><span style="font-size:13px;opacity:.6">City centre</span><span class="arch-arrow" style="font-size:14px;color:#8C6239;opacity:0;transition:opacity .35s">→</span></div>
+<div data-reveal="" data-archive-row="" style="display:grid;grid-template-columns:70px 1.6fr 1fr 1fr 40px;gap:16px;align-items:baseline;padding:22px 0;border-bottom:1px solid rgba(247,245,241,.12);transition:padding-left .45s cubic-bezier(.16,1,.3,1)"><span style="font-size:12px;opacity:.45">2023</span><span style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(1.1rem,1.6vw,1.4rem)">Travertine Pavilion</span><span style="font-size:13px;opacity:.6">Luxury residential</span><span style="font-size:13px;opacity:.6">Coastal</span><span class="arch-arrow" style="font-size:14px;color:#8C6239;opacity:0;transition:opacity .35s">→</span></div>
+<div data-reveal="" style="margin-top:26px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.35">Archive entries are placeholder — supply real project records before launch</div>
+</div>
+</sc-if>
+</section>
+
+<section id="services" style="padding:clamp(80px,12vw,160px) max(clamp(20px,5vw,72px),(100% - 1600px) / 2);background:#F7F5F1">
+<div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px">
+<div>
+<div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;opacity:.5"><span style="display:inline-block;width:28px;height:1px;background:#8C6239"></span>Services</div>
+<h2 style="font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(2rem,3.8vw,3.5rem);line-height:1.1;letter-spacing:-.015em;margin:22px 0 0;max-width:18ch">Four disciplines, one accountable team</h2>
+</div>
+<p style="max-width:34ch;font-size:15px;line-height:1.7;opacity:.65;margin:0">From first sketch to final flashing, delivered under a single contract.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;margin-top:clamp(44px,6vw,80px);border-top:1px solid rgba(43,44,46,.18);border-left:1px solid rgba(43,44,46,.18)">
+<div data-reveal="" data-svc="" style="position:relative;padding:44px 34px 52px;border-bottom:1px solid rgba(43,44,46,.18);border-right:1px solid rgba(43,44,46,.18);overflow:hidden">
+<div class="svc-fill" style="position:absolute;inset:0;background:#2B2C2E;transform:scaleY(0);transform-origin:bottom;transition:transform .6s cubic-bezier(.16,1,.3,1)"></div>
+<div style="position:relative">
+<div class="svc-num" style="font-size:11px;letter-spacing:.22em;opacity:.45;transition:color .5s,opacity .5s">01</div>
+<h3 class="svc-h" style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:25px;margin:24px 0 14px;transition:color .5s">Design &amp; Preconstruction</h3>
+<p class="svc-p" style="font-size:14px;line-height:1.75;opacity:.7;margin:0;transition:color .5s">Concept, detailing, and buildability review before a single cost is committed.</p>
+</div>
+</div>
+<div data-reveal="" data-svc="" style="position:relative;padding:44px 34px 52px;border-bottom:1px solid rgba(43,44,46,.18);border-right:1px solid rgba(43,44,46,.18);overflow:hidden">
+<div class="svc-fill" style="position:absolute;inset:0;background:#2B2C2E;transform:scaleY(0);transform-origin:bottom;transition:transform .6s cubic-bezier(.16,1,.3,1)"></div>
+<div style="position:relative">
+<div class="svc-num" style="font-size:11px;letter-spacing:.22em;opacity:.45;transition:color .5s,opacity .5s">02</div>
+<h3 class="svc-h" style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:25px;margin:24px 0 14px;transition:color .5s">Structural Construction</h3>
+<p class="svc-p" style="font-size:14px;line-height:1.75;opacity:.7;margin:0;transition:color .5s">Stone, steel, and timber structures built to the tolerances the drawings assume.</p>
+</div>
+</div>
+<div data-reveal="" data-svc="" style="position:relative;padding:44px 34px 52px;border-bottom:1px solid rgba(43,44,46,.18);border-right:1px solid rgba(43,44,46,.18);overflow:hidden">
+<div class="svc-fill" style="position:absolute;inset:0;background:#2B2C2E;transform:scaleY(0);transform-origin:bottom;transition:transform .6s cubic-bezier(.16,1,.3,1)"></div>
+<div style="position:relative">
+<div class="svc-num" style="font-size:11px;letter-spacing:.22em;color:#B5651D;transition:color .5s,opacity .5s">03</div>
+<h3 class="svc-h" style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:25px;margin:24px 0 14px;transition:color .5s">Roofing &amp; Envelope</h3>
+<p class="svc-p" style="font-size:14px;line-height:1.75;opacity:.7;margin:0;transition:color .5s">Standing-seam copper, zinc, and slate — the specialty the practice is known for.</p>
+</div>
+</div>
+<div data-reveal="" data-svc="" style="position:relative;padding:44px 34px 52px;border-bottom:1px solid rgba(43,44,46,.18);border-right:1px solid rgba(43,44,46,.18);overflow:hidden">
+<div class="svc-fill" style="position:absolute;inset:0;background:#2B2C2E;transform:scaleY(0);transform-origin:bottom;transition:transform .6s cubic-bezier(.16,1,.3,1)"></div>
+<div style="position:relative">
+<div class="svc-num" style="font-size:11px;letter-spacing:.22em;opacity:.45;transition:color .5s,opacity .5s">04</div>
+<h3 class="svc-h" style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:25px;margin:24px 0 14px;transition:color .5s">Restoration &amp; Fit-out</h3>
+<p class="svc-p" style="font-size:14px;line-height:1.75;opacity:.7;margin:0;transition:color .5s">Sensitive repair and interior joinery for buildings worth keeping.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="process" style="padding:clamp(80px,12vw,160px) max(clamp(20px,5vw,72px),(100% - 1600px) / 2);background:#2B2C2E;color:#F7F5F1">
+<div data-reveal="" style="max-width:38ch">
+<div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;opacity:.6"><span style="display:inline-block;width:28px;height:1px;background:#8C6239"></span>Process</div>
+<h2 style="font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(2rem,3.8vw,3.5rem);line-height:1.1;letter-spacing:-.015em;margin:22px 0 0">From first conversation to handover</h2>
+</div>
+<div style="margin-top:clamp(48px,6vw,88px);height:1px;background:rgba(247,245,241,.18);position:relative"><div id="process-rail" style="position:absolute;top:0;left:0;height:1px;width:0%;background:#8C6239"></div></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:clamp(24px,3vw,44px);margin-top:32px">
+<div data-reveal="" data-stagger="0"><div style="font-size:11px;letter-spacing:.22em;opacity:.45">01</div><h3 style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:21px;margin:14px 0 12px">Consultation</h3><p style="font-size:14px;line-height:1.75;opacity:.68;margin:0">Site walk, brief, and a frank view on budget and programme.</p></div>
+<div data-reveal="" data-stagger="1"><div style="font-size:11px;letter-spacing:.22em;opacity:.45">02</div><h3 style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:21px;margin:14px 0 12px">Planning</h3><p style="font-size:14px;line-height:1.75;opacity:.68;margin:0">Consents, surveys, and procurement strategy agreed up front.</p></div>
+<div data-reveal="" data-stagger="2"><div style="font-size:11px;letter-spacing:.22em;opacity:.45">03</div><h3 style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:21px;margin:14px 0 12px">Design</h3><p style="font-size:14px;line-height:1.75;opacity:.68;margin:0">Detailing to junction level, with physical material mock-ups.</p></div>
+<div data-reveal="" data-stagger="3"><div style="font-size:11px;letter-spacing:.22em;opacity:.45">04</div><h3 style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:21px;margin:14px 0 12px">Construction</h3><p style="font-size:14px;line-height:1.75;opacity:.68;margin:0">One site team, weekly reporting, no subcontracted accountability.</p></div>
+<div data-reveal="" data-stagger="4"><div style="font-size:11px;letter-spacing:.22em;opacity:.45">05</div><h3 style="font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:21px;margin:14px 0 12px">Completion</h3><p style="font-size:14px;line-height:1.75;opacity:.68;margin:0">Snagging closed before handover, with a two-year aftercare period.</p></div>
+</div>
+</section>
+
+<!-- “Clients” section removed: the quote, attribution, and logos here were all
+     fabricated placeholder content. Re-add once real client testimonials and
+     logos exist — don't restore the invented quote. -->
+
+<section id="contact" style="position:relative;padding:clamp(88px,13vw,180px) max(clamp(20px,5vw,72px),(100% - 1600px) / 2);overflow:hidden">
+<div data-parallax="0.12" style="position:absolute;inset:-10% 0"><img src="assets/imagery/material-detail-copper-stone.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<div style="position:absolute;inset:0;background:rgba(43,44,46,.82)"></div>
+<div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:clamp(40px,6vw,96px);align-items:start;color:#F7F5F1">
+<div data-reveal="">
+<div style="display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;opacity:.7"><span style="display:inline-block;width:28px;height:1px;background:#8C6239"></span>Start a project</div>
+<h2 style="font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(2.3rem,5vw,4.4rem);line-height:1.04;letter-spacing:-.02em;margin:24px 0 0;max-width:13ch">Tell us what you want to build.</h2>
+<p style="font-size:17px;line-height:1.7;opacity:.78;max-width:44ch;margin:26px 0 0">Send a brief, a sketch, or an address. We will tell you honestly whether we are the right practice for it.</p>
+<div style="margin-top:40px;display:flex;flex-direction:column;gap:10px;font-size:14px;opacity:.78">
+<span>studio@trccontractors.com</span>
+<span>Call 0742 801 565 · WhatsApp 0784 853 259</span>
+<span>Portal Avenue, Behind NIC Insurance, Kasirye Kavuma Lane, Kampala</span>
+</div>
+</div>
+<sc-if value="{{ contactForm }}" hint-placeholder-val="{{ true }}">
+<div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
+<div id="enquiry-error" style="display:none;font-size:12px;color:#B5651D;letter-spacing:.02em"></div>
+<div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.55">Name</div><input id="enq-name" type="text" placeholder="Your name" style="width:100%;margin-top:9px;padding:10px 0;background:transparent;border:0;border-bottom:1px solid rgba(247,245,241,.32);color:#F7F5F1;font-family:'Archivo',Helvetica,sans-serif;font-size:15px;outline:none"></div>
+<div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.55">Email</div><input id="enq-email" type="email" placeholder="you@company.com" style="width:100%;margin-top:9px;padding:10px 0;background:transparent;border:0;border-bottom:1px solid rgba(247,245,241,.32);color:#F7F5F1;font-family:'Archivo',Helvetica,sans-serif;font-size:15px;outline:none"></div>
+<div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.55">Project</div><textarea id="enq-project" rows="3" placeholder="Site, scope, and rough programme" style="width:100%;margin-top:9px;padding:10px 0;background:transparent;border:0;border-bottom:1px solid rgba(247,245,241,.32);color:#F7F5F1;font-family:'Archivo',Helvetica,sans-serif;font-size:15px;outline:none;resize:vertical"></textarea></div>
+<a href="#contact" onClick="{{ sendEnquiry }}" style="align-self:flex-start;background:#8C6239;color:#F7F5F1;padding:17px 38px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background-color .35s,color .35s" style-hover="background:#F7F5F1;color:#2B2C2E">Send Enquiry</a>
+</div>
+</sc-if>
+</div>
+</section>
+
+<footer style="background:#2B2C2E;color:#F7F5F1;padding:clamp(56px,8vw,104px) max(clamp(20px,5vw,72px),(100% - 1600px) / 2) 0;overflow:hidden">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(32px,4vw,64px)">
+<div>
+<img src="assets/logos/trc-symbol-white.png" alt="" style="height:46px;width:auto;display:block">
+<div style="font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:300;font-size:18px;opacity:.62;margin-top:18px">We design. We build. We roof.</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:13px">
+<div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.45">Navigate</div>
+<a href="#work" style="font-size:14px;color:#F7F5F1;text-decoration:none;opacity:.85" style-hover="opacity:1">Work</a>
+<a href="#practice" style="font-size:14px;color:#F7F5F1;text-decoration:none;opacity:.85" style-hover="opacity:1">Practice</a>
+<a href="#materials" style="font-size:14px;color:#F7F5F1;text-decoration:none;opacity:.85" style-hover="opacity:1">Materials</a>
+<a href="#process" style="font-size:14px;color:#F7F5F1;text-decoration:none;opacity:.85" style-hover="opacity:1">Process</a>
+</div>
+<div style="display:flex;flex-direction:column;gap:13px">
+<div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.45">Services</div>
+<a href="#services" style="font-size:14px;color:#F7F5F1;text-decoration:none;opacity:.85" style-hover="opacity:1">Design &amp; preconstruction</a>
+<a href="#services" style="font-size:14px;color:#F7F5F1;text-decoration:none;opacity:.85" style-hover="opacity:1">Structural construction</a>
+<a href="#services" style="font-size:14px;color:#F7F5F1;text-decoration:none;opacity:.85" style-hover="opacity:1">Roofing &amp; envelope</a>
+<a href="#services" style="font-size:14px;color:#F7F5F1;text-decoration:none;opacity:.85" style-hover="opacity:1">Restoration &amp; fit-out</a>
+</div>
+<div style="display:flex;flex-direction:column;gap:13px">
+<div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.45">Contact</div>
+<span style="font-size:14px;opacity:.85">studio@trccontractors.com</span>
+<span style="font-size:14px;opacity:.85">Call 0742 801 565 · WhatsApp 0784 853 259</span>
+<span style="font-size:14px;opacity:.55;line-height:1.6">Portal Avenue, Behind NIC Insurance<br>Kasirye Kavuma Lane, Kampala</span>
+<div style="display:flex;gap:18px;margin-top:6px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.6">
+<a href="https://instagram.com/trccontractors" target="_blank" rel="noopener" style="color:#F7F5F1;text-decoration:none" style-hover="opacity:.7">Instagram</a>
+<a href="https://facebook.com/TrcContractors" target="_blank" rel="noopener" style="color:#F7F5F1;text-decoration:none" style-hover="opacity:.7">Facebook</a>
+</div>
+</div>
+</div>
+<div style="margin-top:clamp(40px,6vw,80px);padding-top:22px;border-top:1px solid rgba(247,245,241,.2);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:11px;letter-spacing:.1em;opacity:.42">
+<span>© 2026 TRC Contractors</span>
+<span>Kampala, Uganda</span>
+</div>
+<div style="font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(3.4rem,15.5vw,15rem);line-height:.78;letter-spacing:-.03em;opacity:.10;white-space:nowrap;margin-top:clamp(24px,4vw,48px);user-select:none">TRC Contractors</div>
+</footer>
+</div>
+</sc-if>
+
+<sc-if value="{{ isProject }}" hint-placeholder-val="{{ false }}">
+<dc-import name="ProjectDetail" on-back="{{ goHome }}" hint-size="100%,1200px"></dc-import>
+</sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;introCurtain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;showArchive&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;},&quot;contactForm&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behaviour&quot;}}">
+const GUT = 'max(clamp(20px,5vw,72px),(100% - 1600px) / 2)';
+const FILM_FRAMES = 349;
+const FILM_BASE = 'assets/film/frames/f';
+const FILM_WINDOW = 18;
+const FILM_EVICT = 30;
+const FILM_CONCURRENCY = 4;
+class Component extends DCLogic {
+  state = { view: 'home', desktop: true };
+
+  componentDidMount() {
+    this.onResize = () => {
+      const d = window.innerWidth >= 1080;
+      if (d !== this.state.desktop) this.setState({ desktop: d });
+      this.sizeFilmCanvas();
+    };
+    this.onScroll = () => {
+      const y = window.scrollY || 0;
+      const doc = document.documentElement;
+      const max = Math.max(1, doc.scrollHeight - window.innerHeight);
+      const rail = document.getElementById('scroll-rail');
+      if (rail) rail.style.width = Math.min(100, (y / max) * 100).toFixed(2) + '%';
+
+      const nav = document.getElementById('site-nav');
+      if (nav) {
+        const solid = y > 80 || this.state.view !== 'home';
+        const plate = document.getElementById('nav-plate');
+        if (plate) plate.style.opacity = solid ? '1' : '0';
+        const inner = document.getElementById('nav-inner');
+        if (inner) inner.style.padding = solid ? '15px ' + GUT : '24px ' + GUT;
+        const ink = solid ? '#2B2C2E' : '#F7F5F1';
+        const word = document.getElementById('nav-word');
+        if (word) word.style.color = ink;
+        const mark = document.getElementById('nav-mark');
+        if (mark) {
+          const want = solid ? './assets/logos/trc-symbol-trimmed.png' : './assets/logos/trc-symbol-white.png';
+          if (!mark.src.endsWith(want.slice(1))) mark.src = want;
+        }
+        const ctas = [document.getElementById('nav-cta'), document.getElementById('nav-cta-m')].filter(Boolean);
+        nav.querySelectorAll('a').forEach((a) => {
+          if (ctas.indexOf(a) > -1) return;
+          a.style.color = ink;
+        });
+        ctas.forEach((cta) => {
+          cta.style.background = solid ? '#8C6239' : 'transparent';
+          cta.style.color = '#F7F5F1';
+          cta.style.borderColor = solid ? '#8C6239' : 'rgba(247,245,241,.45)';
+        });
+        this.markActive(ink);
+      }
+
+      const prail = document.getElementById('process-rail');
+      if (prail) {
+        const sec = document.getElementById('process');
+        if (sec) {
+          const r = sec.getBoundingClientRect();
+          const p = (window.innerHeight * 0.82 - r.top) / Math.max(1, r.height * 0.75);
+          prail.style.width = (Math.max(0, Math.min(1, p)) * 100).toFixed(1) + '%';
+        }
+      }
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        if (el.style.opacity === '0' && el.getBoundingClientRect().bottom < 0) {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          el.querySelectorAll('[data-count]').forEach((n) => this.count(n));
+        }
+      });
+      document.querySelectorAll('[data-parallax]').forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > window.innerHeight + 200) return;
+        const speed = parseFloat(el.getAttribute('data-parallax')) || 0.2;
+        el.style.transform = 'translate3d(0,' + ((r.top * -1) * speed).toFixed(1) + 'px,0)';
+      });
+
+      const film = document.getElementById('hero-film');
+      const visual = document.getElementById('hero-visual');
+      if (film && visual) {
+        const fr = film.getBoundingClientRect();
+        const vh = window.innerHeight;
+        // Manual pin, not position:sticky — a page-wide overflow-x:hidden ancestor
+        // breaks sticky's containing-block math in most engines.
+        if (fr.top > 0) { visual.style.position = 'absolute'; visual.style.top = '0'; visual.style.bottom = ''; }
+        else if (fr.bottom <= vh) { visual.style.position = 'absolute'; visual.style.top = ''; visual.style.bottom = '0'; }
+        else { visual.style.position = 'fixed'; visual.style.top = '0'; visual.style.bottom = ''; }
+        const total = fr.height - vh;
+        const p = total > 4 ? Math.min(1, Math.max(0, -fr.top / total)) : 0;
+        if (this.filmReady) this.filmTarget = p * (FILM_FRAMES - 1);
+      }
+    };
+    window.addEventListener('resize', this.onResize, { passive: true });
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.initFilm();
+    this.onResize();
+    this.onScroll();
+    this.arm();
+    this.raiseCurtain();
+  }
+
+  componentDidUpdate() { this.arm(); this.onScroll(); }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('scroll', this.onScroll);
+    if (this.io) this.io.disconnect();
+    if (this.filmRaf) cancelAnimationFrame(this.filmRaf);
+    if (this.filmCache) this.filmCache.forEach((bmp) => bmp.close());
+  }
+
+  raiseCurtain() {
+    const c = document.getElementById('curtain');
+    if (!c) return;
+    if (this.props.introCurtain === false) { c.style.display = 'none'; return; }
+    const bar = document.getElementById('curtain-bar');
+    requestAnimationFrame(() => { if (bar) bar.style.width = '100%'; });
+    setTimeout(() => {
+      c.style.opacity = '0';
+      c.style.visibility = 'hidden';
+      setTimeout(() => { c.style.display = 'none'; }, 750);
+    }, 1250);
+  }
+
+  markActive(ink) {
+    const ids = ['practice', 'materials', 'work', 'services', 'process'];
+    let active = '';
+    ids.forEach((id) => {
+      const s = document.getElementById(id);
+      if (!s) return;
+      const r = s.getBoundingClientRect();
+      if (r.top <= window.innerHeight * 0.4 && r.bottom > window.innerHeight * 0.4) active = id;
+    });
+    document.querySelectorAll('[data-navlink]').forEach((a) => {
+      const on = a.getAttribute('data-navlink') === active;
+      a.style.borderBottom = on ? '1px solid #8C6239' : '1px solid transparent';
+      a.style.opacity = on ? '1' : '.82';
+      if (ink) a.style.color = ink;
+    });
+  }
+
+  // ---- Scroll-film: canvas frame scrub (Higgsfield Seedance 2.0 footage) ----
+  // Never <video currentTime> scrub — seek stutter. Decode off-thread with
+  // createImageBitmap and keep a sliding window of frames around the playhead.
+  initFilm() {
+    const canvas = document.getElementById('film-canvas');
+    const motionOk = window.matchMedia('(min-width:1080px) and (prefers-reduced-motion: no-preference)').matches;
+    if (!canvas || !motionOk) return; // mobile / reduced-motion: static poster + fallback strip only, never fetch frames
+    this.filmCanvas = canvas;
+    this.filmCtx = canvas.getContext('2d');
+    this.filmCache = new Map();
+    this.filmLoading = new Set();
+    this.filmCurrent = 0;
+    this.filmTarget = 0;
+    this.filmDpr = Math.min(1.5, window.devicePixelRatio || 1);
+    this.filmReady = true;
+    this.sizeFilmCanvas();
+    this.filmEnsureWindow(0);
+    const loop = () => {
+      this.filmCurrent += (this.filmTarget - this.filmCurrent) * 0.14;
+      const idx = Math.max(0, Math.min(FILM_FRAMES - 1, Math.round(this.filmCurrent)));
+      this.filmEnsureWindow(idx);
+      this.filmDraw(idx);
+      this.filmRaf = requestAnimationFrame(loop);
+    };
+    this.filmRaf = requestAnimationFrame(loop);
+  }
+
+  sizeFilmCanvas() {
+    if (!this.filmCanvas) return;
+    const r = this.filmCanvas.getBoundingClientRect();
+    this.filmCanvas.width = Math.round(r.width * this.filmDpr);
+    this.filmCanvas.height = Math.round(r.height * this.filmDpr);
+  }
+
+  filmFrameUrl(i) { return FILM_BASE + String(i + 1).padStart(4, '0') + '.jpg'; }
+
+  filmEnsureWindow(center) {
+    const lo = Math.max(0, center - FILM_WINDOW);
+    const hi = Math.min(FILM_FRAMES - 1, center + FILM_WINDOW);
+    for (let i = lo; i <= hi && this.filmLoading.size < FILM_CONCURRENCY; i++) {
+      if (this.filmCache.has(i) || this.filmLoading.has(i)) continue;
+      this.filmLoading.add(i);
+      fetch(this.filmFrameUrl(i)).then((res) => res.blob()).then((blob) => createImageBitmap(blob)).then((bmp) => {
+        this.filmLoading.delete(i);
+        this.filmCache.set(i, bmp);
+      }).catch(() => { this.filmLoading.delete(i); });
+    }
+    // Evict bitmaps far from the playhead so memory stays bounded on a long scroll.
+    this.filmCache.forEach((bmp, i) => {
+      if (Math.abs(i - center) > FILM_EVICT) { bmp.close(); this.filmCache.delete(i); }
+    });
+  }
+
+  filmNearest(idx) {
+    for (let d = 0; d <= FILM_WINDOW; d++) {
+      if (this.filmCache.has(idx - d)) return this.filmCache.get(idx - d);
+      if (this.filmCache.has(idx + d)) return this.filmCache.get(idx + d);
+    }
+    return null;
+  }
+
+  filmDraw(idx) {
+    const bmp = this.filmCache.get(idx) || this.filmNearest(idx);
+    if (!bmp || !this.filmCtx) return; // nothing decoded yet — poster background shows through, canvas never blanks
+    const cw = this.filmCanvas.width, ch = this.filmCanvas.height;
+    const scale = Math.max(cw / bmp.width, ch / bmp.height);
+    const dw = bmp.width * scale, dh = bmp.height * scale;
+    this.filmCtx.drawImage(bmp, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
+  }
+
+  arm() {
+    if (!this.io) {
+      this.io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          this.io.unobserve(el);
+          const delay = (parseInt(el.getAttribute('data-stagger') || '0', 10)) * 90;
+          setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            el.querySelectorAll('[data-count]').forEach((n) => this.count(n));
+          }, delay);
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    }
+    document.querySelectorAll('[data-reveal]').forEach((el) => {
+      if (el.dataset.armed) return;
+      el.dataset.armed = '1';
+      const below = el.getBoundingClientRect().top > window.innerHeight * 0.9;
+      el.style.transition = 'opacity .95s cubic-bezier(.16,1,.3,1), transform .95s cubic-bezier(.16,1,.3,1)';
+      if (below) { el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; this.io.observe(el); }
+      else el.querySelectorAll('[data-count]').forEach((n) => this.count(n));
+    });
+
+    document.querySelectorAll('a img.zoom').forEach((img) => {
+      if (img.dataset.hoverArmed) return;
+      img.dataset.hoverArmed = '1';
+      const a = img.closest('a');
+      if (!a) return;
+      a.addEventListener('mouseenter', () => { img.style.transform = 'scale(1.035)'; });
+      a.addEventListener('mouseleave', () => { img.style.transform = 'scale(1)'; });
+    });
+
+    const rows = document.querySelectorAll('[data-material]');
+    const matImg = document.getElementById('mat-img');
+    const matSpec = document.getElementById('mat-spec');
+    const matIdx = document.getElementById('mat-index');
+    rows.forEach((row) => {
+      if (row.dataset.matArmed) return;
+      row.dataset.matArmed = '1';
+      row.addEventListener('mouseenter', () => {
+        rows.forEach((r) => { r.style.paddingLeft = '0px'; r.style.opacity = '.42'; });
+        row.style.paddingLeft = '14px';
+        row.style.opacity = '1';
+        if (matImg) {
+          matImg.style.opacity = '0';
+          setTimeout(() => {
+            matImg.src = row.getAttribute('data-img');
+            matImg.style.opacity = '1';
+            matImg.style.transform = 'scale(1.04)';
+            setTimeout(() => { matImg.style.transform = 'scale(1)'; }, 40);
+          }, 220);
+        }
+        if (matSpec) {
+          matSpec.style.opacity = '0';
+          setTimeout(() => { matSpec.textContent = row.getAttribute('data-spec'); matSpec.style.opacity = '1'; }, 200);
+        }
+        if (matIdx) matIdx.textContent = '0' + (parseInt(row.getAttribute('data-material'), 10) + 1) + ' / 04';
+      });
+    });
+    const matList = rows.length ? rows[0].parentNode : null;
+    if (matList && !matList.dataset.leaveArmed) {
+      matList.dataset.leaveArmed = '1';
+      matList.addEventListener('mouseleave', () => { rows.forEach((r) => { r.style.paddingLeft = '0px'; r.style.opacity = '1'; }); });
+    }
+
+    document.querySelectorAll('[data-svc]').forEach((card) => {
+      if (card.dataset.svcArmed) return;
+      card.dataset.svcArmed = '1';
+      const fill = card.querySelector('.svc-fill');
+      const h = card.querySelector('.svc-h');
+      const p = card.querySelector('.svc-p');
+      const n = card.querySelector('.svc-num');
+      card.addEventListener('mouseenter', () => {
+        if (fill) fill.style.transform = 'scaleY(1)';
+        [h, p, n].forEach((el) => { if (el) el.style.color = '#F7F5F1'; });
+      });
+      card.addEventListener('mouseleave', () => {
+        if (fill) fill.style.transform = 'scaleY(0)';
+        [h, p].forEach((el) => { if (el) el.style.color = '#2B2C2E'; });
+        if (n) n.style.color = n.textContent.trim() === '03' ? '#B5651D' : '#2B2C2E';
+      });
+    });
+
+    document.querySelectorAll('[data-archive-row]').forEach((row) => {
+      if (row.dataset.archArmed) return;
+      row.dataset.archArmed = '1';
+      const arrow = row.querySelector('.arch-arrow');
+      row.addEventListener('mouseenter', () => { row.style.paddingLeft = '14px'; if (arrow) arrow.style.opacity = '1'; });
+      row.addEventListener('mouseleave', () => { row.style.paddingLeft = '0px'; if (arrow) arrow.style.opacity = '0'; });
+    });
+  }
+
+  count(node) {
+    if (node.dataset.counted) return;
+    node.dataset.counted = '1';
+    const target = parseFloat(node.getAttribute('data-count'));
+    if (!isFinite(target)) return;
+    const prefix = node.getAttribute('data-prefix') || '';
+    const suffix = node.getAttribute('data-suffix') || '';
+    const dur = 1500;
+    const start = performance.now();
+    const step = (t) => {
+      const p = Math.min(1, (t - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      node.textContent = prefix + Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  renderVals() {
+    const go = (view) => (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      this.setState({ view }, () => window.scrollTo({ top: 0, behavior: 'auto' }));
+    };
+    const sendEnquiry = (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      const name = (document.getElementById('enq-name') || {}).value || '';
+      const email = (document.getElementById('enq-email') || {}).value || '';
+      const project = (document.getElementById('enq-project') || {}).value || '';
+      const err = document.getElementById('enquiry-error');
+      if (!name.trim() || !email.trim()) {
+        if (err) { err.textContent = 'Please add at least your name and email.'; err.style.display = 'block'; }
+        return;
+      }
+      if (err) err.style.display = 'none';
+      const subject = 'New enquiry from ' + name;
+      const body = 'Name: ' + name + '\nEmail: ' + email + '\n\nProject:\n' + project;
+      window.location.href = 'mailto:studio@trccontractors.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    };
+    return {
+      desktop: this.state.desktop,
+      mobile: !this.state.desktop,
+      isHome: this.state.view === 'home',
+      isProject: this.state.view === 'project',
+      // Archive/pending-project placeholders are fabricated content — kept off by
+      // default until real project records replace them. Flip showArchive:true
+      // once real entries are in.
+      showArchive: this.props.showArchive === true,
+      contactForm: this.props.contactForm !== false,
+      openProject: go('project'),
+      goHome: go('home'),
+      sendEnquiry
+    };
+  }
+}
+
+</script>
+</body>
+</html>

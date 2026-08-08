@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in — TRC Contractors Portal</title>
+<meta name="description" content="Sign in to the TRC Contractors portal — for clients, site engineers, and professionals.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Archivo:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --white:#F7F5F1;
+    --travertine:#D8CBB8;
+    --charcoal:#2B2C2E;
+    --bronze:#8C6239;
+    --walnut:#5C4433;
+    --graphite:#6E7A80;
+    --copper:#B5651D;
+    --border:#2B2C2E26;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--white);color:var(--charcoal);font-family:'Archivo',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--bronze);color:var(--white)}
+  a{color:inherit}
+
+  @keyframes riseIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes maskUp{from{transform:translateY(115%)}to{transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+  .shell{min-height:100svh;display:grid;grid-template-columns:1.15fr 1fr}
+  @media (max-width:900px){.shell{grid-template-columns:1fr}}
+
+  /* ---- Left: brand panel ---- */
+  .brand{position:relative;overflow:hidden;background:var(--charcoal);color:var(--white);display:flex;flex-direction:column;justify-content:space-between;padding:clamp(32px,4vw,64px)}
+  @media (max-width:900px){.brand{min-height:280px}}
+  .brand img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .brand-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,44,46,.88),rgba(43,44,46,.5) 45%,rgba(43,44,46,.92))}
+  .brand-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);pointer-events:none}
+  .brand-grid div{border-right:1px solid rgba(247,245,241,.08)}
+  .brand-top,.brand-bottom{position:relative;z-index:1}
+  .brand-mark{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;width:fit-content;opacity:1;transition:opacity .3s var(--ease)}
+  .brand-mark:hover{opacity:.8}
+  .brand-mark img.symbol{height:30px;width:auto}
+  .brand-mark span{font-size:13px;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+  .brand-headline{max-width:16ch;margin:0 0 18px;font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(1.9rem,3.4vw,3.1rem);line-height:1.1;letter-spacing:-.015em}
+  .brand-headline em{font-style:italic;color:var(--travertine)}
+  .brand-sub{max-width:38ch;font-size:15px;line-height:1.7;opacity:.78;margin:0}
+  .brand-eyebrow{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;opacity:.8;margin-bottom:22px}
+  .brand-eyebrow span{display:inline-block;width:26px;height:1px;background:var(--bronze)}
+
+  /* ---- Right: form panel ---- */
+  .panel{display:flex;align-items:center;justify-content:center;padding:clamp(32px,5vw,64px)}
+  .card{width:100%;max-width:400px}
+  .card-mark{display:none}
+  @media (max-width:900px){
+    .card-mark{display:flex;align-items:center;gap:11px;margin-bottom:36px;text-decoration:none;color:inherit;width:fit-content;opacity:1;transition:opacity .3s var(--ease)}
+    .card-mark:hover{opacity:.7}
+    .card-mark img{height:26px;width:auto}
+    .card-mark span{font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--charcoal)}
+  }
+  .card-eyebrow{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;opacity:.5;margin-bottom:18px}
+  .card-eyebrow span{display:inline-block;width:22px;height:1px;background:var(--bronze)}
+  .card h1{font-family:'Newsreader',Georgia,serif;font-weight:200;font-size:clamp(1.9rem,3vw,2.4rem);line-height:1.08;letter-spacing:-.015em;margin:0 0 10px}
+  .card p.lede{font-size:14px;line-height:1.65;opacity:.62;margin:0 0 32px;min-height:38px;transition:opacity .3s var(--ease)}
+
+  /* Role switcher */
+  .roles{display:flex;border:1px solid var(--border);margin-bottom:34px}
+  .role{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;background:transparent;border:0;border-right:1px solid var(--border);cursor:pointer;font-family:'Archivo',Helvetica,sans-serif;color:var(--charcoal);opacity:.5;transition:opacity .3s var(--ease),background-color .3s var(--ease)}
+  .role:last-child{border-right:0}
+  .role svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.4}
+  .role span{font-size:10px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+  .role[aria-selected="true"]{opacity:1;background:var(--charcoal);color:var(--white)}
+  .role:not([aria-selected="true"]):hover{opacity:.85}
+
+  /* Form */
+  form{display:flex;flex-direction:column;gap:22px}
+  .field{display:flex;flex-direction:column;gap:9px}
+  .field label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.55}
+  .field input{width:100%;padding:11px 0;background:transparent;border:0;border-bottom:1px solid var(--border);color:var(--charcoal);font-family:'Archivo',Helvetica,sans-serif;font-size:15px;outline:none;transition:border-color .3s var(--ease)}
+  .field input:focus{border-bottom-color:var(--bronze)}
+  .field input::placeholder{color:#2B2C2E61}
+
+  .row{display:flex;align-items:center;justify-content:space-between;font-size:13px}
+  .remember{display:flex;align-items:center;gap:9px;opacity:.72;cursor:pointer;user-select:none}
+  .remember input{width:14px;height:14px;accent-color:var(--bronze)}
+  .forgot{font-size:13px;text-decoration:none;color:var(--graphite);border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+  .forgot:hover{color:var(--charcoal);border-color:var(--charcoal)}
+
+  .submit{margin-top:6px;background:var(--bronze);color:var(--white);border:0;padding:16px 28px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background-color .35s var(--ease)}
+  .submit:hover{background:var(--walnut)}
+
+  .demo-note{margin-top:16px;font-size:11px;line-height:1.6;opacity:.4;letter-spacing:.01em}
+
+  .divider{display:flex;align-items:center;gap:14px;margin:34px 0 22px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.4}
+  .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+  .request{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:14px}
+  .request a{text-decoration:none;color:var(--charcoal);border-bottom:1px solid var(--bronze);padding-bottom:2px;font-weight:500;transition:opacity .3s}
+  .request a:hover{opacity:.7}
+
+  [data-reveal]{opacity:0;transform:translateY(14px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .in{opacity:1!important;transform:none!important}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- Brand panel -->
+  <div class="brand">
+    <img src="assets/imagery/highland-exterior.png" alt="">
+    <div class="brand-scrim"></div>
+    <div class="brand-grid"><div></div><div></div><div></div><div></div></div>
+
+    <div class="brand-top">
+      <a class="brand-mark" href="Website.dc.html">
+        <img class="symbol" src="assets/logos/trc-symbol-white.png" alt="">
+        <span>TRC Contractors</span>
+      </a>
+    </div>
+
+    <div class="brand-bottom" data-reveal>
+      <div class="brand-eyebrow"><span></span>Portal</div>
+      <h1 class="brand-headline">One record of the project, for <em>everyone building it.</em></h1>
+      <p class="brand-sub">Clients, site engineers, and consulting professionals working from the same drawings, the same programme, the same approvals — no version confusion, no lost email threads.</p>
+    </div>
+  </div>
+
+  <!-- Form panel -->
+  <div class="panel">
+    <div class="card">
+
+      <a class="card-mark" href="Website.dc.html">
+        <img src="assets/logos/trc-symbol-trimmed.png" alt="">
+        <span>TRC Contractors</span>
+      </a>
+
+      <div class="card-eyebrow" data-reveal><span></span>Sign in</div>
+      <h1 data-reveal>Welcome back.</h1>
+      <p class="lede" id="role-lede" data-reveal>Select your portal, then sign in with your account.</p>
+
+      <div class="roles" role="tablist" aria-label="Portal" data-reveal>
+        <button type="button" class="role" role="tab" aria-selected="true" data-role="client">
+          <svg viewBox="0 0 24 24"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-7h6v7"/></svg>
+          <span>Client</span>
+        </button>
+        <button type="button" class="role" role="tab" aria-selected="false" data-role="engineer">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span>Site Engineer</span>
+        </button>
+        <button type="button" class="role" role="tab" aria-selected="false" data-role="professional">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v14H8l-4 4z"/><path d="M8 9h8M8 13h5"/></svg>
+          <span>Professionals</span>
+        </button>
+      </div>
+
+      <form data-reveal id="login-form">
+        <div class="field">
+          <label for="email" id="email-label">Email</label>
+          <input id="email" type="email" placeholder="you@company.com" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="••••••••••" autocomplete="current-password" required>
+        </div>
+        <div class="row">
+          <label class="remember"><input type="checkbox">Remember me</label>
+          <a class="forgot" href="#">Forgot password?</a>
+        </div>
+        <button class="submit" type="submit">Sign in</button>
+        <div class="demo-note">Static design concept — connect this form to your auth provider before going live.</div>
+      </form>
+
+      <div class="divider" data-reveal>New here</div>
+      <div class="request" data-reveal>
+        <span style="opacity:.62">Don't have portal access yet?</span>
+        <a href="#">Request access</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var copy = {
+    client: {
+      lede: 'Track your project’s progress, approvals, and documents in one place.',
+      label: 'Email'
+    },
+    engineer: {
+      lede: 'Log site reports, RFIs, and daily progress from the field.',
+      label: 'Work email'
+    },
+    professional: {
+      lede: 'Architects, consultants, and subcontractors — manage submittals and drawings.',
+      label: 'Professional email'
+    }
+  };
+
+  var roles = document.querySelectorAll('.role');
+  var lede = document.getElementById('role-lede');
+  var emailLabel = document.getElementById('email-label');
+
+  roles.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      roles.forEach(function(b){ b.setAttribute('aria-selected', 'false'); });
+      btn.setAttribute('aria-selected', 'true');
+      var key = btn.getAttribute('data-role');
+      var c = copy[key];
+      lede.style.opacity = '0';
+      setTimeout(function(){
+        lede.textContent = c.lede;
+        emailLabel.textContent = c.label;
+        lede.style.opacity = '1';
+      }, 150);
+    });
+  });
+
+  document.getElementById('login-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    // No backend wired up — this is a static design concept.
+  });
+
+  // Simple on-load reveal, matching the homepage's motion language.
+  document.querySelectorAll('[data-reveal]').forEach(function(el, i){
+    setTimeout(function(){ el.classList.add('in'); }, 80 + i * 90);
+  });
+})();
+</script>
+
+</body>
+</html>

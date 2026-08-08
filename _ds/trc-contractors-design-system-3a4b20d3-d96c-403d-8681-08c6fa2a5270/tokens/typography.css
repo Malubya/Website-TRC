@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Archivo:wght@400;500;600&display=swap');
+:root{
+--font-display:'Newsreader',Georgia,'Times New Roman',serif;
+--font-body:'Archivo',Helvetica,Arial,sans-serif;
+
+--text-hero:clamp(3rem,7vw,6.5rem);
+--text-h1:clamp(2.25rem,4vw,3.75rem);
+--text-h2:clamp(1.75rem,2.6vw,2.5rem);
+--text-h3:1.5rem;
+--text-lead:1.25rem;
+--text-body:1rem;
+--text-small:0.875rem;
+--text-caption:0.75rem;
+
+--tracking-caption:0.12em;
+--tracking-nav:0.06em;
+--leading-tight:1.05;
+--leading-heading:1.15;
+--leading-body:1.6;
+}
