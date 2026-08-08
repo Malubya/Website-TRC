@@ -24,7 +24,6 @@ No build step. No framework. Open a file, it runs.
 | [`Website.dc.html`](Website.dc.html) | Homepage | Hero film, practice, materials, work, services, process, testimonials, CTA |
 | [`ProjectDetail.dc.html`](ProjectDetail.dc.html) | Case study | Highland Residence — single-project deep dive |
 | [`Login.html`](Login.html) | `/Login.html` | Client portal sign-in |
-| [`Website v1.dc.html`](Website%20v1.dc.html) | Archive | Earlier homepage iteration, kept for reference |
 
 ## Running it locally
 
@@ -68,7 +67,6 @@ Source of truth lives in [`_ds/`](_ds/trc-contractors-design-system-3a4b20d3-d96
 .
 ├── Website.dc.html            # Homepage
 ├── ProjectDetail.dc.html      # Case study page
-├── Website v1.dc.html         # Archived homepage draft
 ├── Login.html                 # Client portal
 ├── ds-base.js                 # Design-system runtime base
 ├── image-slot.js              # Responsive image-slot handling
