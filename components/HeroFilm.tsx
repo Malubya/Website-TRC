@@ -3,23 +3,25 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 
-const FILM_FRAMES = 349;
+const FILM_FRAMES = 441;
 const FILM_BASE = "/assets/film/frames/f";
 const FILM_WINDOW = 18;
 const FILM_EVICT = 30;
 const FILM_CONCURRENCY = 4;
 
 const journey = [
-  { src: "/assets/imagery/highland-exterior.png", label: "01 — Design", accent: "var(--color-aged-bronze)" },
-  { src: "/assets/imagery/highland-interior.png", label: "02 — Build", accent: "var(--color-aged-bronze)" },
-  { src: "/assets/imagery/material-detail-copper-stone.png", label: "03 — Roof", accent: "var(--color-deep-copper)" },
+  { src: "/assets/imagery/hero-house-exterior.jpg", label: "01 — Design", accent: "var(--color-aged-bronze)" },
+  { src: "/assets/imagery/hero-house-living.jpg", label: "02 — Build", accent: "var(--color-aged-bronze)" },
+  { src: "/assets/imagery/hero-house-roof.jpg", label: "03 — Roof", accent: "var(--color-deep-copper)" },
 ];
 
 /**
  * Hero scroll-film ("The Long Exposure") — desktop + motion-ok only. A
- * canvas is scrubbed through a 349-frame sequence as the visitor scrolls a
- * 340vh-tall wrapper; the visual pane is pinned across that scroll via
- * manual position toggling rather than `position: sticky` (a page-wide
+ * canvas is scrubbed through a 441-frame sequence (four Higgsfield Kling 3.0
+ * shots — exterior approach, living room, kitchen, roof reveal — crossfaded
+ * into one continuous 1920x1080/24fps take) as the visitor scrolls a 340vh-
+ * tall wrapper; the visual pane is pinned across that scroll via manual
+ * position toggling rather than `position: sticky` (a page-wide
  * `overflow-x: hidden` ancestor breaks sticky's containing-block math in
  * most engines). Frames are decoded off-thread with `createImageBitmap` and
  * kept in a sliding window around the playhead — never `<video currentTime>`
@@ -184,7 +186,7 @@ export default function HeroFilm() {
               height: "100%",
               display: "block",
               background:
-                "var(--color-charcoal-steel) url(/assets/imagery/hero-hillside-golden-hour.png) center/cover",
+                "var(--color-charcoal-steel) url(/assets/imagery/hero-house-exterior.jpg) center/cover",
             }}
           />
           <div
