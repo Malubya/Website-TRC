@@ -5,6 +5,7 @@ import PracticeSection from "@/components/PracticeSection";
 import MaterialsSection from "@/components/MaterialsSection";
 import WorkSection from "@/components/WorkSection";
 import ServicesSection from "@/components/ServicesSection";
+import SiteProgressSection from "@/components/SiteProgressSection";
 import ProcessSection from "@/components/ProcessSection";
 import ContactSection from "@/components/ContactSection";
 import DiasporaSection from "@/components/DiasporaSection";
@@ -20,6 +21,7 @@ export default function Home() {
         <PracticeSection />
         <MaterialsSection />
         <WorkSection />
+        <SiteProgressSection />
         <ServicesSection />
         <ProcessSection />
         <DiasporaSection />

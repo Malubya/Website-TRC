@@ -15,7 +15,7 @@ const archive = [
     category: "Retail & automotive",
     place: "Mende, Wakiso",
     body: "A revenue-focused commercial hub bringing together an ice-cream parlour, restaurant, butchery, car-wash bay, spacious parking, and a vehicle-accessories shop.",
-    images: [],
+    images: ["/assets/imagery/mende-commercial-complex.jpeg"],
   },
 ];
 
@@ -183,13 +183,13 @@ export default function WorkSection() {
               {row.body}
             </p>
             {row.images.length > 0 && (
-              <div className="farm-gallery" style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 2, marginTop: 24 }}>
+              <div className="farm-gallery" style={{ display: "grid", gridTemplateColumns: row.images.length === 1 ? "minmax(0, 760px)" : "2fr 1fr 1fr", gap: 2, marginTop: 24 }}>
                 {row.images.map((src, index) => (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     key={src}
                     src={src}
-                    alt={index === 0 ? "Aerial rendering of the integrated livestock and poultry farm" : index === 1 ? "Entrance to the integrated farm development" : "Service yard and circulation area within the farm development"}
+                    alt={row.name === "Mende Commercial Complex" ? "Architectural rendering of the Mende commercial and shopping complex" : index === 0 ? "Aerial rendering of the integrated livestock and poultry farm" : index === 1 ? "Entrance to the integrated farm development" : "Service yard and circulation area within the farm development"}
                     style={{ width: "100%", height: 260, objectFit: "cover", display: "block" }}
                   />
                 ))}
