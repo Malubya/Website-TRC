@@ -7,7 +7,7 @@
    - Network:      http://192.168.1.194:3000
 
  ✓ Starting...
- ✓ Ready in 4.4s
+ ✓ Ready in 2.7s
  ○ Compiling / ...
- ✓ Compiled / in 9s (666 modules)
- GET / 200 in 10518ms
+ ✓ Compiled / in 6.1s (645 modules)
+ GET / 200 in 6635ms

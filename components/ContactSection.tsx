@@ -74,7 +74,7 @@ export default function ContactSection() {
         style={{
           position: "relative",
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(310px,1fr))",
+          gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,310px),1fr))",
           gap: "clamp(40px,6vw,96px)",
           alignItems: "start",
           color: "var(--color-architectural-white)",

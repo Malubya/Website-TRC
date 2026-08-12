@@ -53,13 +53,13 @@ export default function WorkSection() {
         <span style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", opacity: 0.5 }}>Designed by TRC Contractors Design Studio</span>
       </Reveal>
 
-      <div style={{ marginTop: "clamp(40px,5vw,72px)", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: 2, background: "rgba(247,245,241,.18)" }}>
+      <div style={{ marginTop: "clamp(40px,5vw,72px)", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,320px),1fr))", gap: 2, background: "rgba(247,245,241,.18)" }}>
         <Reveal
           as="div"
           style={{ gridColumn: "1/-1" }}
         >
           <article
-            className="project-card"
+            className="project-card featured-project-card"
             style={{
               position: "relative",
               display: "block",
@@ -78,7 +78,7 @@ export default function WorkSection() {
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top,rgba(43,44,46,.78),transparent 58%)" }} />
-            <div
+            <div className="featured-project-copy"
               style={{
                 position: "absolute",
                 left: "clamp(20px,4vw,52px)",

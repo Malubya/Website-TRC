@@ -211,4 +211,6 @@
   .word { font-size: 11px; }
   .inner { padding-top: 16px; padding-bottom: 16px; }
   .mobileMenu { inset-block-start: 61px; }
+  .mobileMenuLink { padding: 13px 0; font-size: clamp(1.55rem, 8vw, 2rem); }
+  .mobileActions { grid-template-columns: 1fr; margin-top: 22px; }
 }

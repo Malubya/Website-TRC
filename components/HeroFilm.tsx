@@ -161,6 +161,7 @@ export default function HeroFilm() {
     <>
       <div id="hero-film" ref={wrapRef}>
         <section
+          className="hero-visual"
           id="hero-visual"
           ref={visualRef as React.RefObject<HTMLElement>}
           style={{
@@ -200,6 +201,7 @@ export default function HeroFilm() {
             }}
           />
           <div
+            className="hero-content"
             style={{
               position: "absolute",
               inset: 0,
@@ -208,6 +210,7 @@ export default function HeroFilm() {
             }}
           />
           <div
+            className="hero-facts"
             style={{
               position: "absolute",
               inset: 0,

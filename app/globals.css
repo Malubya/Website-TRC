@@ -162,10 +162,12 @@ a {
    mobile/reduced-motion get the static fallback strip instead. */
 #hero-film {
   position: relative;
-  display: none;
+  display: block;
+  height: 100svh;
+  min-height: 620px;
 }
 #hero-film-fallback {
-  display: block;
+  display: none;
 }
 @media (min-width: 1080px) and (prefers-reduced-motion: no-preference) {
   #hero-film {
@@ -175,6 +177,19 @@ a {
   #hero-film-fallback {
     display: none;
   }
+}
+
+@media (max-width: 1079px) {
+  .hero-visual { min-height: 620px !important; }
+  .hero-content {
+    bottom: 44px !important;
+  }
+  .hero-content h1 {
+    font-size: clamp(2.7rem, 12vw, 4.7rem) !important;
+    max-width: 10ch !important;
+  }
+  .hero-content p { max-width: 34ch !important; }
+  .hero-facts { display: none !important; }
 }
 
 .footer-link:hover {
@@ -221,9 +236,29 @@ a {
 }
 
 @media (max-width: 700px) {
+  :root { --gutter: clamp(18px, 5vw, 28px); }
+  .hero-content { bottom: 32px !important; }
+  .hero-content > div:last-child { gap: 22px !important; }
+  .hero-content .hero-cta-primary,
+  .hero-content .hero-cta-ghost {
+    flex: 1 1 145px;
+    padding: 14px 18px;
+    text-align: center;
+  }
+  .featured-project-card {
+    aspect-ratio: 4 / 5 !important;
+    min-height: 520px !important;
+  }
+  .featured-project-copy {
+    align-items: flex-start !important;
+  }
+  .featured-project-copy h3 { font-size: 2rem !important; }
   .apartment-gallery {
     grid-template-columns: 1fr !important;
   }
+  .apartment-gallery > img { min-height: 260px !important; aspect-ratio: 4 / 3; }
+  .apartment-gallery > div { grid-template-columns: 1fr 1fr; grid-template-rows: none !important; }
+  .apartment-gallery > div img { min-height: 150px !important; aspect-ratio: 1 / 1; }
   .farm-gallery {
     grid-template-columns: 1fr !important;
   }
@@ -242,6 +277,16 @@ a {
   .project-summary { margin-left: 0 !important; }
   .site-progress-grid,
   .residential-studies-grid { grid-template-columns: 1fr !important; }
+  .site-progress-grid > * { min-height: 280px !important; }
+}
+
+@media (max-width: 420px) {
+  .hero-content h1 { font-size: clamp(2.45rem, 13vw, 3.4rem) !important; }
+  .hero-content p { font-size: 14px !important; line-height: 1.55 !important; }
+  .hero-content .hero-cta-primary,
+  .hero-content .hero-cta-ghost { flex-basis: 100%; }
+  .apartment-gallery > div { grid-template-columns: 1fr; }
+  .mobileActions { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -252,6 +297,8 @@ a {
     transition-duration: 0.01ms !important;
   }
   [data-reveal][data-armed="true"] { opacity: 1; transform: none; }
+  #hero-film video { display: none; }
+  #film-canvas { display: block !important; }
 }
 
 /* Archive table row — nudges right and reveals the arrow on hover. */
