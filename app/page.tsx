@@ -1,6 +1,7 @@
 import Curtain from "@/components/Curtain";
 import Nav from "@/components/Nav";
 import HeroFilm from "@/components/HeroFilm";
+import PathwaysSection from "@/components/PathwaysSection";
 import PracticeSection from "@/components/PracticeSection";
 import MaterialsSection from "@/components/MaterialsSection";
 import WorkSection from "@/components/WorkSection";
@@ -18,6 +19,7 @@ export default function Home() {
       <Nav />
       <div id="top">
         <HeroFilm />
+        <PathwaysSection />
         <PracticeSection />
         <MaterialsSection />
         <WorkSection />

@@ -100,6 +100,105 @@ a {
   color: var(--color-architectural-white);
 }
 
+.pathways {
+  position: relative;
+  z-index: 2;
+  padding: clamp(72px, 9vw, 124px) var(--gutter) clamp(82px, 10vw, 140px);
+  background: var(--color-architectural-white);
+}
+.pathways-intro { text-align: center; }
+.pathways-eyebrow {
+  color: var(--color-aged-bronze);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+.pathways-intro h2 {
+  margin: 17px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 4.4vw, 4rem);
+  font-weight: 200;
+  line-height: 1.05;
+}
+.pathways-intro > p { margin: 18px 0 0; opacity: .62; }
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 1.5vw, 24px);
+  margin-top: clamp(38px, 5vw, 62px);
+}
+.pathway-item { position: relative; padding-bottom: 28px; color: var(--color-charcoal-steel); }
+.pathway-card {
+  position: relative;
+  min-height: 390px;
+  padding: clamp(26px, 3vw, 42px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(43,44,46,.08);
+  border-radius: 30px 30px 30px 8px;
+  transition: transform .55s var(--ease-editorial), border-radius .55s var(--ease-editorial), box-shadow .55s var(--ease-editorial);
+}
+.pathway-item:hover .pathway-card { transform: translateY(-8px); border-radius: 8px 30px 30px 30px; box-shadow: 0 24px 55px rgba(43,44,46,.12); }
+.pathway-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.pathway-icon { width: 52px; height: 52px; overflow: visible; }
+.pathway-icon path, .pathway-icon circle { stroke-dasharray: 160; stroke-dashoffset: 0; }
+.pathway-item:hover .pathway-icon path, .pathway-item:hover .pathway-icon circle { animation: pathwayDraw .9s ease both; }
+.pathway-icon .icon-accent { color: var(--color-deep-copper); }
+.pathway-number { font-size: 10px; letter-spacing: .2em; opacity: .55; }
+.pathway-card h3 {
+  margin: 50px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 2.2vw, 2.15rem);
+  font-weight: 300;
+  line-height: 1.08;
+}
+.pathway-card p { position: relative; z-index: 1; margin: 22px 0 32px; font-size: 14px; line-height: 1.72; opacity: .72; }
+.pathway-action {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  min-width: 74%;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 6px solid var(--color-architectural-white);
+  border-radius: 999px;
+  box-shadow: 0 10px 25px rgba(43,44,46,.10);
+  color: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .15em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.pathway-action:hover { transform: translateX(5px); box-shadow: 0 14px 30px rgba(43,44,46,.16); }
+.pathway-action span { color: var(--color-deep-copper); font-size: 17px; transition: transform .3s; }
+.pathway-action:hover span { transform: translateX(4px); }
+.pathway-orbit { position: absolute; right: -58px; bottom: -68px; width: 190px; height: 190px; border: 1px solid currentColor; border-radius: 50%; opacity: .1; transition: transform .7s var(--ease-editorial); }
+.pathway-orbit span { position: absolute; border: 1px solid currentColor; border-radius: 50%; }
+.pathway-orbit span:first-child { inset: 24px; }
+.pathway-orbit span:last-child { inset: 52px; }
+.pathway-item:hover .pathway-orbit { transform: scale(1.12) rotate(18deg); }
+.pathway-bronze .pathway-card, .pathway-bronze .pathway-action { color: var(--color-architectural-white); background: var(--color-aged-bronze); }
+.pathway-charcoal .pathway-card, .pathway-charcoal .pathway-action { color: var(--color-architectural-white); background: var(--color-charcoal-steel); }
+.pathway-travertine .pathway-card, .pathway-travertine .pathway-action { background: var(--color-travertine); }
+.pathway-white .pathway-card, .pathway-white .pathway-action { background: #fff; }
+.pathway-bronze .pathway-action span, .pathway-charcoal .pathway-action span,
+.pathway-bronze .icon-accent, .pathway-charcoal .icon-accent { color: var(--color-architectural-white); }
+
+@keyframes pathwayDraw { from { stroke-dashoffset: 160; } to { stroke-dashoffset: 0; } }
+
+@media (max-width: 980px) {
+  .pathways-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .pathway-card { min-height: 340px; }
+}
+
 @keyframes riseIn {
   from {
     opacity: 0;
@@ -278,6 +377,15 @@ a {
   .site-progress-grid,
   .residential-studies-grid { grid-template-columns: 1fr !important; }
   .site-progress-grid > * { min-height: 280px !important; }
+  .pathways { padding-top: 64px; padding-bottom: 78px; }
+  .pathways-intro { text-align: left; }
+  .pathways-grid { grid-template-columns: 1fr; border: 0; gap: 22px; margin-top: 32px; }
+  .pathway-item { padding-bottom: 24px; }
+  .pathway-card { min-height: 320px; padding: 28px 24px; border: 0 !important; border-radius: 24px 24px 24px 6px; }
+  .pathway-action { min-width: 72%; padding: 13px 18px; }
+  .pathway-icon { width: 46px; height: 46px; }
+  .pathway-card h3 { margin-top: 28px; }
+  .pathway-card p { margin-bottom: 28px; }
 }
 
 @media (max-width: 420px) {
