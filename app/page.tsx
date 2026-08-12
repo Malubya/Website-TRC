@@ -7,6 +7,7 @@ import WorkSection from "@/components/WorkSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
 import ContactSection from "@/components/ContactSection";
+import DiasporaSection from "@/components/DiasporaSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <WorkSection />
         <ServicesSection />
         <ProcessSection />
+        <DiasporaSection />
         <ContactSection />
         <Footer />
       </div>

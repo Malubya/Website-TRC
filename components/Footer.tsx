@@ -85,8 +85,9 @@ export default function Footer() {
           <div style={{ fontSize: 10, letterSpacing: ".24em", textTransform: "uppercase", opacity: 0.45 }}>
             Contact
           </div>
-          <span style={{ fontSize: 14, opacity: 0.85 }}>studio@trccontractors.com</span>
-          <span style={{ fontSize: 14, opacity: 0.85 }}>Call 0742 801 565 · WhatsApp 0784 853 259</span>
+          <a href="mailto:info@trccontractors.com" style={linkStyle}>info@trccontractors.com</a>
+          <a href="tel:+256742801565" style={linkStyle}>Call +256 742 801 565</a>
+          <a href="https://wa.me/256784853259" style={linkStyle}>WhatsApp +256 784 853 259</a>
           <span style={{ fontSize: 14, opacity: 0.55, lineHeight: 1.6 }}>
             Portal Avenue, Behind NIC Insurance
             <br />

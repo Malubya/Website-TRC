@@ -1,5 +1,4 @@
 import Reveal from "./Reveal";
-import Counter from "./Counter";
 
 export default function PracticeSection() {
   return (
@@ -62,24 +61,16 @@ export default function PracticeSection() {
               borderTop: "1px solid rgba(43,44,46,.15)",
             }}
           >
-            <div>
-              <Counter target={24} />
-              <div style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", opacity: 0.5, marginTop: 9 }}>
-                Years building
+            {[
+              ["Design", "Architecture & planning"],
+              ["Build", "Construction delivery"],
+              ["Roof", "Envelope expertise"],
+            ].map(([title, label]) => (
+              <div key={title}>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: 300, fontSize: 30 }}>{title}</div>
+                <div style={{ fontSize: 11, letterSpacing: ".14em", textTransform: "uppercase", opacity: 0.5, marginTop: 9 }}>{label}</div>
               </div>
-            </div>
-            <div>
-              <Counter target={100} suffix="%" />
-              <div style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", opacity: 0.5, marginTop: 9 }}>
-                In-house delivery
-              </div>
-            </div>
-            <div>
-              <Counter target={1} />
-              <div style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", opacity: 0.5, marginTop: 9 }}>
-                Contract, one contact
-              </div>
-            </div>
+            ))}
           </div>
         </Reveal>
 
@@ -87,8 +78,8 @@ export default function PracticeSection() {
           <div style={{ position: "relative", aspectRatio: "4/5", overflow: "hidden", minHeight: 380 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/assets/imagery/highland-interior.png"
-              alt=""
+              src="/assets/imagery/katwe-mixed-use-front.jpeg"
+              alt="Street-level architectural rendering of the Katwe mixed-use development"
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             />
           </div>
@@ -115,7 +106,7 @@ export default function PracticeSection() {
             }}
           />
           <div style={{ marginTop: 16, fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", opacity: 0.45 }}>
-            Fig. 01 — Highland Residence, interior volume
+            Fig. 01 — Katwe Mixed-Use Development, street elevation
           </div>
         </Reveal>
       </div>

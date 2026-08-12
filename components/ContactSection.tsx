@@ -38,7 +38,7 @@ export default function ContactSection() {
     setError("");
     const subject = `New enquiry from ${name}`;
     const body = `Name: ${name}\nEmail: ${email}\n\nProject:\n${project}`;
-    window.location.href = `mailto:studio@trccontractors.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:info@trccontractors.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const fieldStyle: React.CSSProperties = {
@@ -103,8 +103,9 @@ export default function ContactSection() {
             for it.
           </p>
           <div style={{ marginTop: 40, display: "flex", flexDirection: "column", gap: 10, fontSize: 14, opacity: 0.78 }}>
-            <span>studio@trccontractors.com</span>
-            <span>Call 0742 801 565 · WhatsApp 0784 853 259</span>
+            <a href="mailto:info@trccontractors.com">info@trccontractors.com</a>
+            <a href="tel:+256742801565">Call +256 742 801 565</a>
+            <a href="https://wa.me/256784853259?text=Hello%20TRC%2C%20I%20would%20like%20to%20discuss%20a%20project.">WhatsApp +256 784 853 259</a>
             <span>Portal Avenue, Behind NIC Insurance, Kasirye Kavuma Lane, Kampala</span>
           </div>
         </Reveal>
@@ -112,16 +113,17 @@ export default function ContactSection() {
         <Reveal style={{ display: "flex", flexDirection: "column", gap: 26 }}>
           {error && <div style={{ fontSize: 12, color: "var(--color-deep-copper)", letterSpacing: ".02em" }}>{error}</div>}
           <div>
-            <div style={{ fontSize: 10, letterSpacing: ".24em", textTransform: "uppercase", opacity: 0.55 }}>Name</div>
-            <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Your name" style={fieldStyle} />
+            <label htmlFor="enquiry-name" style={{ fontSize: 10, letterSpacing: ".24em", textTransform: "uppercase", opacity: 0.55 }}>Name</label>
+            <input id="enquiry-name" value={name} onChange={(e) => setName(e.target.value)} type="text" autoComplete="name" placeholder="Your name" style={fieldStyle} />
           </div>
           <div>
-            <div style={{ fontSize: 10, letterSpacing: ".24em", textTransform: "uppercase", opacity: 0.55 }}>Email</div>
-            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="you@company.com" style={fieldStyle} />
+            <label htmlFor="enquiry-email" style={{ fontSize: 10, letterSpacing: ".24em", textTransform: "uppercase", opacity: 0.55 }}>Email</label>
+            <input id="enquiry-email" value={email} onChange={(e) => setEmail(e.target.value)} type="email" autoComplete="email" placeholder="you@company.com" style={fieldStyle} />
           </div>
           <div>
-            <div style={{ fontSize: 10, letterSpacing: ".24em", textTransform: "uppercase", opacity: 0.55 }}>Project</div>
+            <label htmlFor="enquiry-project" style={{ fontSize: 10, letterSpacing: ".24em", textTransform: "uppercase", opacity: 0.55 }}>Project</label>
             <textarea
+              id="enquiry-project"
               value={project}
               onChange={(e) => setProject(e.target.value)}
               rows={3}
@@ -129,9 +131,8 @@ export default function ContactSection() {
               style={{ ...fieldStyle, resize: "vertical" }}
             />
           </div>
-          <a href="#contact" onClick={sendEnquiry} className="hero-cta-primary" style={{ alignSelf: "flex-start" }}>
-            Send Enquiry
-          </a>
+          <button type="button" onClick={sendEnquiry} className="hero-cta-primary" style={{ alignSelf: "flex-start", border: 0, cursor: "pointer", fontFamily: "inherit" }}>Prepare Email</button>
+          <span style={{ fontSize: 12, lineHeight: 1.6, opacity: .58 }}>This opens your email app with the project details ready to send.</span>
         </Reveal>
       </div>
     </section>

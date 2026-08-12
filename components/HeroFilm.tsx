@@ -35,9 +35,7 @@ export default function HeroFilm() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const motionOk = window.matchMedia(
-      "(min-width:1080px) and (prefers-reduced-motion: no-preference)",
-    ).matches;
+    const motionOk = window.matchMedia("(min-width:9999px)").matches;
     const canvas = canvasRef.current;
     if (!canvas || !motionOk) return;
 
@@ -176,6 +174,18 @@ export default function HeroFilm() {
             background: "var(--color-charcoal-steel)",
           }}
         >
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/assets/imagery/hero-house-exterior.jpg"
+            aria-hidden="true"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+          >
+            <source src="/assets/film/master_backup_349.mp4" type="video/mp4" />
+          </video>
           <canvas
             id="film-canvas"
             ref={canvasRef}
@@ -184,7 +194,7 @@ export default function HeroFilm() {
               inset: 0,
               width: "100%",
               height: "100%",
-              display: "block",
+              display: "none",
               background:
                 "var(--color-charcoal-steel) url(/assets/imagery/hero-house-exterior.jpg) center/cover",
             }}
@@ -243,7 +253,7 @@ export default function HeroFilm() {
                 }}
               >
                 <span style={{ display: "inline-block", width: 34, height: 1, background: "var(--color-aged-bronze)" }} />
-                Established 2002 · Design · Build · Roof
+                Uganda · Design · Build · Roof
               </div>
             </div>
             <h1
@@ -375,7 +385,7 @@ export default function HeroFilm() {
                 <div style={{ fontSize: 10, letterSpacing: ".24em", textTransform: "uppercase", opacity: 0.55 }}>
                   Currently
                 </div>
-                <div style={{ fontSize: 14, marginTop: 7, opacity: 0.92 }}>Accepting 2027 commissions</div>
+                <div style={{ fontSize: 14, marginTop: 7, opacity: 0.92 }}>Discuss your next project</div>
               </div>
               <div style={{ width: 1, height: 34, overflow: "hidden", background: "rgba(247,245,241,.2)" }}>
                 <div
