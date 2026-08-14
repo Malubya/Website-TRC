@@ -26,6 +26,9 @@ yarn-error.log*
 /docs/frames_backup_349/
 /docs/master-source.mp4
 
+# local source gallery archives (not served by the website)
+/TRC Gallery/
+
 # local env files
 .env*.local
 .env
