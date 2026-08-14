@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
-import { Newsreader, Archivo } from "next/font/google";
+import "@fontsource/newsreader/latin-200.css";
+import "@fontsource/newsreader/latin-200-italic.css";
+import "@fontsource/newsreader/latin-300.css";
+import "@fontsource/newsreader/latin-300-italic.css";
+import "@fontsource/newsreader/latin-400.css";
+import "@fontsource/newsreader/latin-400-italic.css";
+import "@fontsource/newsreader/latin-500.css";
+import "@fontsource/newsreader/latin-500-italic.css";
+import "@fontsource/archivo/latin-400.css";
+import "@fontsource/archivo/latin-500.css";
+import "@fontsource/archivo/latin-600.css";
 import "./globals.css";
-
-const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-newsreader", weight: ["200", "300", "400", "500"], style: ["normal", "italic"], display: "swap" });
-const archivo = Archivo({ subsets: ["latin"], variable: "--font-archivo", weight: ["400", "500", "600"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://trccontractors.com"),
@@ -21,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${newsreader.variable} ${archivo.variable}`}>
+    <html lang="en">
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

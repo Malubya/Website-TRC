@@ -1,6 +1,5 @@
 /* Design tokens — ported 1:1 from the original design system
-   (_ds/…/tokens/*.css). Font family tokens are overridden below by the
-   next/font CSS variables set on <html> in layout.tsx. */
+   (_ds/…/tokens/*.css). Font families are bundled locally. */
 :root {
   --color-architectural-white: #f7f5f1;
   --color-travertine: #d8cbb8;
@@ -24,6 +23,8 @@
   --border-default: #2b2c2e26;
   --border-inverse: #f7f5f133;
 
+  --font-newsreader: "Newsreader";
+  --font-archivo: "Archivo";
   --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
   --font-body: var(--font-archivo), Helvetica, Arial, sans-serif;
 
