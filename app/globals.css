@@ -335,6 +335,298 @@ a {
   transform: scale(1.035);
 }
 
+/* Diaspora support — an editorial design-to-site project story. */
+.diaspora-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(88px, 11vw, 156px) var(--gutter);
+  color: var(--color-charcoal-steel);
+  background:
+    linear-gradient(90deg, transparent calc(50% - 0.5px), rgba(43, 44, 46, 0.055) 50%, transparent calc(50% + 0.5px)),
+    var(--color-travertine);
+  background-size: min(18vw, 260px) 100%;
+}
+
+.diaspora-shell {
+  width: min(100%, 1540px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(300px, 0.82fr) minmax(480px, 1.18fr);
+  gap: clamp(56px, 8vw, 124px);
+  align-items: center;
+}
+
+.diaspora-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.diaspora-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.diaspora-eyebrow > span {
+  width: 38px;
+  height: 1px;
+  background: var(--color-aged-bronze);
+}
+
+.diaspora-copy h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 200;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.diaspora-lead {
+  max-width: 52ch;
+  margin: 28px 0 34px;
+  font-size: clamp(15px, 1.25vw, 17px);
+  line-height: 1.75;
+  color: rgba(43, 44, 46, 0.74);
+}
+
+.diaspora-points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid rgba(43, 44, 46, 0.18);
+  border-bottom: 1px solid rgba(43, 44, 46, 0.18);
+}
+
+.diaspora-point {
+  min-height: 94px;
+  padding: 20px 20px 20px 0;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 8px;
+  align-items: start;
+}
+
+.diaspora-point:nth-child(odd) {
+  border-right: 1px solid rgba(43, 44, 46, 0.18);
+}
+
+.diaspora-point:nth-child(-n + 2) {
+  border-bottom: 1px solid rgba(43, 44, 46, 0.18);
+}
+
+.diaspora-point:nth-child(even) {
+  padding-left: 20px;
+}
+
+.diaspora-point > span {
+  padding-top: 2px;
+  color: var(--color-aged-bronze);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-style: italic;
+}
+
+.diaspora-point p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.diaspora-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 34px;
+}
+
+.diaspora-actions > span {
+  max-width: 175px;
+  font-size: 9px;
+  line-height: 1.6;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(43, 44, 46, 0.58);
+}
+
+.diaspora-visual {
+  position: relative;
+  min-height: 650px;
+  padding: 0 0 82px 64px;
+}
+
+.diaspora-visual::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  right: -22px;
+  width: 42%;
+  height: 32%;
+  border-top: 1px solid rgba(43, 44, 46, 0.26);
+  border-right: 1px solid rgba(43, 44, 46, 0.26);
+}
+
+.diaspora-primary-image,
+.diaspora-site-image {
+  margin: 0;
+}
+
+.diaspora-primary-image {
+  position: relative;
+  height: 568px;
+  overflow: hidden;
+  background: var(--color-charcoal-steel);
+}
+
+.diaspora-primary-image::after {
+  content: "";
+  position: absolute;
+  inset: 42% 0 0;
+  background: linear-gradient(to bottom, transparent, rgba(24, 24, 24, 0.68));
+  pointer-events: none;
+}
+
+.diaspora-primary-image img,
+.diaspora-site-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.diaspora-primary-image img {
+  object-position: center;
+  filter: saturate(0.82) contrast(1.03);
+  transition: transform 1.4s var(--ease-editorial), filter 1.4s var(--ease-editorial);
+}
+
+.diaspora-visual:hover .diaspora-primary-image img {
+  transform: scale(1.025);
+  filter: saturate(0.95) contrast(1.03);
+}
+
+.diaspora-primary-image figcaption {
+  position: absolute;
+  right: 30px;
+  bottom: 27px;
+  z-index: 1;
+  display: grid;
+  justify-items: end;
+  gap: 4px;
+  color: var(--color-architectural-white);
+}
+
+.diaspora-primary-image figcaption span {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.diaspora-primary-image figcaption strong {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 300;
+}
+
+.diaspora-site-image {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  width: min(44%, 310px);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 10px solid var(--color-travertine);
+  background: var(--color-charcoal-steel);
+}
+
+.diaspora-site-image img {
+  filter: saturate(0.78) contrast(1.05);
+}
+
+.diaspora-site-image figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  min-height: 48px;
+  padding: 13px 14px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--color-architectural-white);
+  background: rgba(43, 44, 46, 0.92);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.diaspora-site-image figcaption span,
+.diaspora-report-head i {
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6f9b74;
+}
+
+.diaspora-report-card {
+  position: absolute;
+  top: 36px;
+  right: -32px;
+  z-index: 4;
+  width: min(46%, 270px);
+  padding: 19px 22px 12px;
+  color: var(--color-architectural-white);
+  border-top: 3px solid var(--color-aged-bronze);
+  background: var(--color-charcoal-steel);
+}
+
+.diaspora-report-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.diaspora-report-row {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 8px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(247, 245, 241, 0.16);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.diaspora-report-row > span {
+  color: rgba(247, 245, 241, 0.45);
+  font-size: 9px;
+}
+
+@media (max-width: 1040px) {
+  .diaspora-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .diaspora-copy {
+    max-width: 720px;
+  }
+
+  .diaspora-visual {
+    width: min(100%, 800px);
+    justify-self: end;
+  }
+}
+
 @media (max-width: 700px) {
   :root { --gutter: clamp(18px, 5vw, 28px); }
   .hero-content { bottom: 32px !important; }
@@ -345,6 +637,58 @@ a {
     padding: 14px 18px;
     text-align: center;
   }
+  .diaspora-section {
+    padding-top: 78px;
+    padding-bottom: 82px;
+    background-size: 34vw 100%;
+  }
+  .diaspora-shell { gap: 52px; }
+  .diaspora-copy h2 { font-size: clamp(2.7rem, 13vw, 4rem); }
+  .diaspora-lead { margin: 23px 0 29px; }
+  .diaspora-points { grid-template-columns: 1fr; }
+  .diaspora-point {
+    min-height: auto;
+    padding: 16px 0;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(43, 44, 46, 0.18);
+  }
+  .diaspora-point:nth-child(even) { padding-left: 0; }
+  .diaspora-point:last-child { border-bottom: 0; }
+  .diaspora-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .diaspora-actions > span { max-width: none; }
+  .diaspora-visual {
+    min-height: 530px;
+    padding: 0 0 78px 28px;
+  }
+  .diaspora-visual::before {
+    top: -14px;
+    right: -10px;
+  }
+  .diaspora-primary-image { height: 460px; }
+  .diaspora-primary-image figcaption {
+    right: 18px;
+    bottom: 20px;
+  }
+  .diaspora-site-image {
+    width: 48%;
+    border-width: 6px;
+  }
+  .diaspora-site-image figcaption {
+    padding: 10px;
+    font-size: 7px;
+    line-height: 1.4;
+  }
+  .diaspora-report-card {
+    top: 18px;
+    right: -6px;
+    width: 52%;
+    padding: 15px 16px 8px;
+  }
+  .diaspora-report-row { padding: 9px 0; }
   .featured-project-card {
     aspect-ratio: 4 / 5 !important;
     min-height: 520px !important;
