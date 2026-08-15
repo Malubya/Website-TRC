@@ -58,37 +58,6 @@ export default function DiasporaSection() {
               <strong>18 Studio Apartments</strong>
             </figcaption>
           </figure>
-
-          <figure className="diaspora-site-image">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/imagery/site-progress-team.jpeg"
-              alt="TRC site team coordinating active construction work"
-            />
-            <figcaption>
-              <span />
-              Progress, documented on site
-            </figcaption>
-          </figure>
-
-          <div className="diaspora-report-card">
-            <div className="diaspora-report-head">
-              <span>Project reporting</span>
-              <i aria-hidden="true" />
-            </div>
-            <div className="diaspora-report-row">
-              <span>01</span>
-              Approvals
-            </div>
-            <div className="diaspora-report-row">
-              <span>02</span>
-              Site updates
-            </div>
-            <div className="diaspora-report-row">
-              <span>03</span>
-              Budget visibility
-            </div>
-          </div>
         </Reveal>
       </div>
     </section>

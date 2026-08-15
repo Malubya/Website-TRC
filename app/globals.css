@@ -455,29 +455,13 @@ a {
 
 .diaspora-visual {
   position: relative;
-  min-height: 650px;
-  padding: 0 0 82px 64px;
-}
-
-.diaspora-visual::before {
-  content: "";
-  position: absolute;
-  top: -22px;
-  right: -22px;
-  width: 42%;
-  height: 32%;
-  border-top: 1px solid rgba(43, 44, 46, 0.26);
-  border-right: 1px solid rgba(43, 44, 46, 0.26);
-}
-
-.diaspora-primary-image,
-.diaspora-site-image {
-  margin: 0;
 }
 
 .diaspora-primary-image {
+  margin: 0;
   position: relative;
-  height: 568px;
+  width: 100%;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--color-charcoal-steel);
 }
@@ -490,15 +474,11 @@ a {
   pointer-events: none;
 }
 
-.diaspora-primary-image img,
-.diaspora-site-image img {
+.diaspora-primary-image img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
-}
-
-.diaspora-primary-image img {
   object-position: center;
   filter: saturate(0.82) contrast(1.03);
   transition: transform 1.4s var(--ease-editorial), filter 1.4s var(--ease-editorial);
@@ -531,85 +511,6 @@ a {
   font-family: var(--font-display);
   font-size: clamp(18px, 2vw, 26px);
   font-weight: 300;
-}
-
-.diaspora-site-image {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 3;
-  width: min(44%, 310px);
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border: 10px solid var(--color-travertine);
-  background: var(--color-charcoal-steel);
-}
-
-.diaspora-site-image img {
-  filter: saturate(0.78) contrast(1.05);
-}
-
-.diaspora-site-image figcaption {
-  position: absolute;
-  inset: auto 0 0;
-  min-height: 48px;
-  padding: 13px 14px;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  color: var(--color-architectural-white);
-  background: rgba(43, 44, 46, 0.92);
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.diaspora-site-image figcaption span,
-.diaspora-report-head i {
-  flex: 0 0 auto;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #6f9b74;
-}
-
-.diaspora-report-card {
-  position: absolute;
-  top: 36px;
-  right: -32px;
-  z-index: 4;
-  width: min(46%, 270px);
-  padding: 19px 22px 12px;
-  color: var(--color-architectural-white);
-  border-top: 3px solid var(--color-aged-bronze);
-  background: var(--color-charcoal-steel);
-}
-
-.diaspora-report-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 14px;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.diaspora-report-row {
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  gap: 8px;
-  padding: 12px 0;
-  border-top: 1px solid rgba(247, 245, 241, 0.16);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-}
-
-.diaspora-report-row > span {
-  color: rgba(247, 245, 241, 0.45);
-  font-size: 9px;
 }
 
 @media (max-width: 1040px) {
@@ -660,35 +561,10 @@ a {
     gap: 16px;
   }
   .diaspora-actions > span { max-width: none; }
-  .diaspora-visual {
-    min-height: 530px;
-    padding: 0 0 78px 28px;
-  }
-  .diaspora-visual::before {
-    top: -14px;
-    right: -10px;
-  }
-  .diaspora-primary-image { height: 460px; }
   .diaspora-primary-image figcaption {
     right: 18px;
     bottom: 20px;
   }
-  .diaspora-site-image {
-    width: 48%;
-    border-width: 6px;
-  }
-  .diaspora-site-image figcaption {
-    padding: 10px;
-    font-size: 7px;
-    line-height: 1.4;
-  }
-  .diaspora-report-card {
-    top: 18px;
-    right: -6px;
-    width: 52%;
-    padding: 15px 16px 8px;
-  }
-  .diaspora-report-row { padding: 9px 0; }
   .featured-project-card {
     aspect-ratio: 4 / 5 !important;
     min-height: 520px !important;
