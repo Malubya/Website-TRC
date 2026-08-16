@@ -29,8 +29,8 @@ export default function PracticeSection() {
               opacity: 0.5,
             }}
           >
-            <span style={{ display: "inline-block", width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
-            The Practice
+            <span style={{ display: "inline-block", flexShrink: 0, width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
+            <span style={{ minWidth: 0 }}>The Practice</span>
           </div>
           <h2
             style={{

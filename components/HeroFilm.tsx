@@ -35,7 +35,7 @@ export default function HeroFilm() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const motionOk = window.matchMedia("(min-width:9999px)").matches;
+    const motionOk = window.matchMedia("(min-width:1080px) and (prefers-reduced-motion: no-preference)").matches;
     const canvas = canvasRef.current;
     if (!canvas || !motionOk) return;
 
@@ -233,6 +233,7 @@ export default function HeroFilm() {
           </div>
 
           <div
+            className="hero-text"
             style={{
               position: "absolute",
               left: "var(--gutter)",
@@ -255,8 +256,8 @@ export default function HeroFilm() {
                   animationDelay: ".15s",
                 }}
               >
-                <span style={{ display: "inline-block", width: 34, height: 1, background: "var(--color-aged-bronze)" }} />
-                Uganda · Design · Build · Roof
+                <span style={{ display: "inline-block", flexShrink: 0, width: 34, height: 1, background: "var(--color-aged-bronze)" }} />
+                <span style={{ minWidth: 0 }}>Uganda · Design · Build · Roof</span>
               </div>
             </div>
             <h1
@@ -337,6 +338,7 @@ export default function HeroFilm() {
           </div>
 
           <div
+            className="hero-stats-bar"
             style={{
               position: "absolute",
               left: 0,
@@ -424,8 +426,8 @@ export default function HeroFilm() {
             marginBottom: 28,
           }}
         >
-          <span style={{ display: "inline-block", width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
-          The Journey
+          <span style={{ display: "inline-block", flexShrink: 0, width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
+          <span style={{ minWidth: 0 }}>The Journey</span>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))", gap: 2 }}>
           {journey.map((j) => (

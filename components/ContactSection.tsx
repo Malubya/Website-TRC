@@ -82,8 +82,8 @@ export default function ContactSection() {
       >
         <Reveal>
           <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 11, letterSpacing: ".26em", textTransform: "uppercase", opacity: 0.7 }}>
-            <span style={{ display: "inline-block", width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
-            Start a project
+            <span style={{ display: "inline-block", flexShrink: 0, width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
+            <span style={{ minWidth: 0 }}>Start a project</span>
           </div>
           <h2
             style={{

@@ -85,8 +85,8 @@ export default function MaterialsSection() {
                 opacity: 0.5,
               }}
             >
-              <span style={{ display: "inline-block", width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
-              Materials
+              <span style={{ display: "inline-block", flexShrink: 0, width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
+              <span style={{ minWidth: 0 }}>Materials</span>
             </div>
             <h2
               style={{

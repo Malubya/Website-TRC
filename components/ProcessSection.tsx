@@ -41,8 +41,8 @@ export default function ProcessSection() {
     >
       <Reveal style={{ maxWidth: "38ch" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 11, letterSpacing: ".26em", textTransform: "uppercase", opacity: 0.6 }}>
-          <span style={{ display: "inline-block", width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
-          Process
+          <span style={{ display: "inline-block", flexShrink: 0, width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
+          <span style={{ minWidth: 0 }}>Process</span>
         </div>
         <h2
           style={{

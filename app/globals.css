@@ -281,15 +281,32 @@ a {
 
 @media (max-width: 1079px) {
   .hero-visual { min-height: 620px !important; }
-  .hero-content {
+  .hero-text {
     bottom: 44px !important;
   }
-  .hero-content h1 {
+  .hero-text h1 {
     font-size: clamp(2.7rem, 12vw, 4.7rem) !important;
     max-width: 10ch !important;
   }
-  .hero-content p { max-width: 34ch !important; }
+  .hero-text p { max-width: 34ch !important; }
   .hero-facts { display: none !important; }
+  /* The Discipline/Materials/Currently stats row along the very bottom of
+     the hero — it has no room on mobile and was overlapping the CTA buttons
+     and body copy above it. */
+  .hero-stats-bar { display: none !important; }
+
+  /* Never attempt to autoplay the 6.6MB hero video below desktop width — on
+     slower/metered mobile connections the autoplay frequently gets blocked,
+     which surfaces the browser's native tap-to-play button sitting on top of
+     (and visually colliding with) the custom text overlay. A static poster
+     is lighter, always renders correctly, and matches what the video opens
+     on anyway. */
+  #hero-film video { display: none !important; }
+  .hero-visual {
+    background-image: url("/assets/imagery/hero-house-exterior.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
 }
 
 .footer-link:hover {
@@ -530,10 +547,10 @@ a {
 
 @media (max-width: 700px) {
   :root { --gutter: clamp(18px, 5vw, 28px); }
-  .hero-content { bottom: 32px !important; }
-  .hero-content > div:last-child { gap: 22px !important; }
-  .hero-content .hero-cta-primary,
-  .hero-content .hero-cta-ghost {
+  .hero-text { bottom: 32px !important; }
+  .hero-text > div:last-child { gap: 22px !important; }
+  .hero-text .hero-cta-primary,
+  .hero-text .hero-cta-ghost {
     flex: 1 1 145px;
     padding: 14px 18px;
     text-align: center;
@@ -610,10 +627,10 @@ a {
 }
 
 @media (max-width: 420px) {
-  .hero-content h1 { font-size: clamp(2.45rem, 13vw, 3.4rem) !important; }
-  .hero-content p { font-size: 14px !important; line-height: 1.55 !important; }
-  .hero-content .hero-cta-primary,
-  .hero-content .hero-cta-ghost { flex-basis: 100%; }
+  .hero-text h1 { font-size: clamp(2.45rem, 13vw, 3.4rem) !important; }
+  .hero-text p { font-size: 14px !important; line-height: 1.55 !important; }
+  .hero-text .hero-cta-primary,
+  .hero-text .hero-cta-ghost { flex-basis: 100%; }
   .apartment-gallery > div { grid-template-columns: 1fr; }
   .mobileActions { grid-template-columns: 1fr; }
 }

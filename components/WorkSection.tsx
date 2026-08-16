@@ -34,8 +34,8 @@ export default function WorkSection() {
       >
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 11, letterSpacing: ".26em", textTransform: "uppercase", opacity: 0.6 }}>
-            <span style={{ display: "inline-block", width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
-            Selected Work
+            <span style={{ display: "inline-block", flexShrink: 0, width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
+            <span style={{ minWidth: 0 }}>Selected Work</span>
           </div>
           <h2
             style={{

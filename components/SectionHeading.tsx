@@ -26,8 +26,12 @@ export default function SectionHeading({
           ...eyebrowStyle,
         }}
       >
-        <span style={{ display: "inline-block", width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
-        {eyebrow}
+        <span style={{ display: "inline-block", flexShrink: 0, width: 28, height: 1, background: "var(--color-aged-bronze)" }} />
+        {/* Flex items default to min-width:auto, which stops long eyebrow
+            strings from wrapping and pushes them off-screen on narrow
+            viewports instead — min-width:0 lets this item shrink and wrap
+            like normal text. */}
+        <span style={{ minWidth: 0 }}>{eyebrow}</span>
       </div>
       <h2
         style={{
