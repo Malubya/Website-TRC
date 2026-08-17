@@ -286,7 +286,7 @@ a {
   }
   .hero-text h1 {
     font-size: clamp(2.7rem, 12vw, 4.7rem) !important;
-    max-width: 10ch !important;
+    max-width: 20ch !important;
   }
   .hero-text p { max-width: 34ch !important; }
   .hero-facts { display: none !important; }

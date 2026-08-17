@@ -268,17 +268,12 @@ export default function HeroFilm() {
                 lineHeight: 1,
                 letterSpacing: "-.02em",
                 margin: "20px 0 0",
-                maxWidth: "14ch",
+                maxWidth: "18ch",
               }}
             >
               <span style={{ display: "block", overflow: "hidden", paddingBottom: ".06em" }}>
                 <span style={{ display: "block", animation: "maskUp 1.15s cubic-bezier(.16,1,.3,1) both", animationDelay: ".3s" }}>
-                  We design.
-                </span>
-              </span>
-              <span style={{ display: "block", overflow: "hidden", paddingBottom: ".06em" }}>
-                <span style={{ display: "block", animation: "maskUp 1.15s cubic-bezier(.16,1,.3,1) both", animationDelay: ".42s" }}>
-                  We build.
+                  From Plan to Key.
                 </span>
               </span>
               <span style={{ display: "block", overflow: "hidden", paddingBottom: ".06em" }}>
@@ -287,10 +282,10 @@ export default function HeroFilm() {
                     display: "block",
                     fontStyle: "italic",
                     animation: "maskUp 1.15s cubic-bezier(.16,1,.3,1) both",
-                    animationDelay: ".54s",
+                    animationDelay: ".42s",
                   }}
                 >
-                  We roof.
+                  Built Right.
                 </span>
               </span>
             </h1>
@@ -315,8 +310,8 @@ export default function HeroFilm() {
                   animationDelay: ".8s",
                 }}
               >
-                Every project treated as a single architectural idea, carried from structure through to skin —
-                drawn, built, and roofed by one team.
+                Uganda&apos;s premier end-to-end construction service. Architectural design, full structural
+                builds, and expert roofing all under one roof.
               </p>
               <div
                 style={{
