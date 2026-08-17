@@ -2,7 +2,7 @@ import Link from "next/link";
 import Reveal from "./Reveal";
 
 const pathways = [
-  { number: "01", title: "Start a Project", body: "Planning a home, commercial development, farm structure, or roofing project? Tell us about the site, scope, and ambition.", action: "Send your brief", href: "/#contact", tone: "bronze", icon: "brief" },
+  { number: "01", title: "Start a Project", body: "Planning a custom home, commercial complex, specialized farm facility, or roof structure? Share your site details, project scope, and vision with us.", action: "Send your brief", href: "/#contact", tone: "bronze", icon: "brief" },
   { number: "02", title: "Explore Our Work", body: "View selected mixed-use, residential, commercial, and agricultural designs developed by TRC Contractors Design Studio.", action: "View projects", href: "/#work", tone: "charcoal", icon: "building" },
   { number: "03", title: "Build From Abroad", body: "For Ugandans in the diaspora: coordinate your project through a direct local liaison, documented approvals, and progress updates.", action: "WhatsApp the team", href: "https://wa.me/256784853259?text=Hello%20TRC%2C%20I%20am%20abroad%20and%20would%20like%20to%20discuss%20a%20project%20in%20Uganda.", tone: "travertine", icon: "globe" },
   { number: "04", title: "Client Access", body: "Already working with TRC? Request project drawings, reports, approvals, and access to your current project records.", action: "Open client access", href: "/login", tone: "white", icon: "portal" },
@@ -20,7 +20,7 @@ function PathwayIcon({ type }: { type: string }) {
 
 export default function PathwaysSection() {
   return <section className="pathways" aria-labelledby="pathways-title">
-    <Reveal className="pathways-intro"><div className="pathways-eyebrow">Welcome to TRC Contractors</div><h2 id="pathways-title">How can we help you build?</h2><p>Choose the path that best matches what you need.</p></Reveal>
+    <Reveal className="pathways-intro"><div className="pathways-eyebrow">Welcome to TRC Contractors</div><h2 id="pathways-title">Ready to turn your vision into reality?</h2><p>Choose the path that best matches what you need.</p></Reveal>
     <div className="pathways-grid">
       {pathways.map((path, index) => <Reveal key={path.title} delayMs={index * 70} className={`pathway-item pathway-${path.tone}`}>
         <div className="pathway-card"><div className="pathway-top"><PathwayIcon type={path.icon}/><span className="pathway-number">{path.number}</span></div><h3>{path.title}</h3><p>{path.body}</p><div className="pathway-orbit" aria-hidden="true"><span/><span/></div></div>
