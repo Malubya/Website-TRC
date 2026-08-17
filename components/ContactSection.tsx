@@ -93,14 +93,15 @@ export default function ContactSection() {
               lineHeight: 1.04,
               letterSpacing: "-.02em",
               margin: "24px 0 0",
-              maxWidth: "13ch",
+              maxWidth: "15ch",
             }}
           >
-            Tell us what you want to build.
+            What are we building for you today?
           </h2>
-          <p style={{ fontSize: 17, lineHeight: 1.7, opacity: 0.78, maxWidth: "44ch", margin: "26px 0 0" }}>
-            Send a brief, a sketch, or an address. We will tell you honestly whether we are the right practice
-            for it.
+          <p style={{ fontSize: 17, lineHeight: 1.7, opacity: 0.78, maxWidth: "48ch", margin: "26px 0 0" }}>
+            Share a brief overview of your project to get started — whether you are planning a residential build
+            or a commercial development. As a market leader in the building and construction industry in Uganda
+            and East Africa, TRC Contractors delivers structural precision from ground up.
           </p>
           <div style={{ marginTop: 40, display: "flex", flexDirection: "column", gap: 10, fontSize: 14, opacity: 0.78 }}>
             <a href="mailto:info@trccontractors.com">info@trccontractors.com</a>
