@@ -145,15 +145,11 @@ export default function Footer() {
       </div>
 
       <div
+        className="footer-wordmark"
         style={{
           fontFamily: "var(--font-display)",
           fontWeight: 200,
-          fontSize: "clamp(3.4rem,15.5vw,15rem)",
-          lineHeight: 0.78,
-          letterSpacing: "-.03em",
           opacity: 0.1,
-          whiteSpace: "nowrap",
-          marginTop: "clamp(24px,4vw,48px)",
           userSelect: "none",
         }}
       >
