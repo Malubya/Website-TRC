@@ -25,9 +25,8 @@ const journey = [
  * `overflow-x: hidden` ancestor breaks sticky's containing-block math in
  * most engines). Frames are decoded off-thread with `createImageBitmap` and
  * kept in a sliding window around the playhead — never `<video currentTime>`
- * scrubbing, which stutters on seek. Mobile / reduced-motion visitors get a
- * static three-image fallback strip instead (rendered always; CSS decides
- * which one is visible, so there's no hydration mismatch).
+ * scrubbing, which stutters on seek. The background video remains available
+ * at every viewport size; reduced-motion visitors retain a static fallback.
  */
 export default function HeroFilm() {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -176,11 +175,12 @@ export default function HeroFilm() {
           }}
         >
           <video
+            className="hero-video"
             autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             poster="/assets/imagery/hero-house-exterior.jpg"
             aria-hidden="true"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}

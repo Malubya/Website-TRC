@@ -258,8 +258,8 @@ a {
   transform: none !important;
 }
 
-/* Hero scroll-film ("The Long Exposure") — desktop + motion-ok only;
-   mobile/reduced-motion get the static fallback strip instead. */
+/* Hero scroll-film ("The Long Exposure") — canvas enhancement on desktop;
+   the underlying video plays at every viewport size. */
 #hero-film {
   position: relative;
   display: block;
@@ -295,17 +295,9 @@ a {
      and body copy above it. */
   .hero-stats-bar { display: none !important; }
 
-  /* Never attempt to autoplay the 6.6MB hero video below desktop width — on
-     slower/metered mobile connections the autoplay frequently gets blocked,
-     which surfaces the browser's native tap-to-play button sitting on top of
-     (and visually colliding with) the custom text overlay. A static poster
-     is lighter, always renders correctly, and matches what the video opens
-     on anyway. */
-  #hero-film video { display: none !important; }
-  .hero-visual {
-    background-image: url("/assets/imagery/hero-house-exterior.jpg") !important;
-    background-size: cover !important;
-    background-position: center !important;
+  .hero-video {
+    display: block !important;
+    object-position: center center !important;
   }
 }
 
@@ -546,6 +538,7 @@ a {
 }
 
 @media (max-width: 700px) {
+  .hero-video { object-position: 58% center !important; }
   :root { --gutter: clamp(18px, 5vw, 28px); }
   .hero-text { bottom: 32px !important; }
   .hero-text > div:last-child { gap: 22px !important; }
