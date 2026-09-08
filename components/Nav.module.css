@@ -48,6 +48,15 @@
   text-decoration: none;
 }
 
+.brandSymbol {
+  width: 42px;
+  height: 31px;
+  display: block;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 3px rgba(248, 245, 247, 0.68));
+}
+
 .word {
   font-size: 14px;
   font-weight: 500;

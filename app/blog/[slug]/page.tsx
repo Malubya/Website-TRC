@@ -74,7 +74,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
     publisher: {
       "@type": "Organization",
       name: "TRC Contractors",
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/assets/logos/trc-symbol-white.png` },
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/assets/logos/trc-official-mark.png` },
     },
   };
 

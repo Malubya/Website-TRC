@@ -41,22 +41,10 @@ export default function Footer() {
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/assets/logos/trc-symbol-white.png"
+            src="/assets/logos/trc-official-mark.png"
             alt=""
-            style={{ height: 46, width: "auto", display: "block" }}
+            style={{ height: 54, width: "auto", display: "block" }}
           />
-          <div
-            style={{
-              fontFamily: "var(--font-display)",
-              fontStyle: "italic",
-              fontWeight: 300,
-              fontSize: 18,
-              opacity: 0.62,
-              marginTop: 18,
-            }}
-          >
-            We design. We build. We roof.
-          </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 13 }}>

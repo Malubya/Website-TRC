@@ -75,7 +75,7 @@ export default function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) 
       <div className={themed(styles.inner)}>
         <Link href="/#top" className={styles.mark} aria-label="TRC Contractors home" onClick={() => setMenuOpen(false)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={solid || menuOpen ? "/assets/logos/trc-symbol-trimmed.png" : "/assets/logos/trc-symbol-white.png"} alt="" style={{ height: 30, width: "auto", display: "block" }} />
+          <img className={styles.brandSymbol} src="/assets/logos/trc-official-mark.png" alt="" />
           <span className={solid || menuOpen ? `${styles.word} ${styles.solid}` : styles.word}>TRC Contractors</span>
         </Link>
 

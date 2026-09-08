@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://trccontractors.com"),
   title: "TRC Contractors — Design, Build, Roof | Uganda",
   description: "TRC Contractors designs and delivers mixed-use, residential, commercial, agricultural, and roofing projects across Uganda.",
-  icons: { icon: "/favicon.png" },
+  icons: { icon: "/assets/logos/trc-official-mark.png" },
   openGraph: {
     title: "TRC Contractors — Design, Build, Roof",
     description: "Ugandan design and construction for mixed-use, residential, commercial, agricultural, and roofing projects.",

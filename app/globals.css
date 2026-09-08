@@ -1,27 +1,27 @@
-/* Design tokens — ported 1:1 from the original design system
-   (_ds/…/tokens/*.css). Font families are bundled locally. */
+/* Official TRC brand palette, centered on the violet and plum tones sampled
+   from the supplied logo artwork. Font families are bundled locally. */
 :root {
-  --color-architectural-white: #f7f5f1;
-  --color-travertine: #d8cbb8;
-  --color-charcoal-steel: #2b2c2e;
-  --color-aged-bronze: #8c6239;
-  --color-walnut: #5c4433;
-  --color-graphite-glass: #6e7a80;
-  --color-deep-copper: #b5651d;
+  --color-architectural-white: #f8f5f7;
+  --color-travertine: #e1d3df;
+  --color-charcoal-steel: #241d26;
+  --color-aged-bronze: #913686;
+  --color-walnut: #682c59;
+  --color-graphite-glass: #786878;
+  --color-deep-copper: #a33a91;
 
   --surface-primary: var(--color-architectural-white);
   --surface-secondary: var(--color-travertine);
   --surface-inverse: var(--color-charcoal-steel);
   --text-primary: var(--color-charcoal-steel);
   --text-inverse: var(--color-architectural-white);
-  --text-muted: #2b2c2ea6;
+  --text-muted: #241d26a6;
   --accent-primary: var(--color-aged-bronze);
   --accent-secondary: var(--color-walnut);
   --link-default: var(--color-graphite-glass);
   --link-hover: var(--color-charcoal-steel);
   --accent-signature: var(--color-deep-copper);
-  --border-default: #2b2c2e26;
-  --border-inverse: #f7f5f133;
+  --border-default: #241d2626;
+  --border-inverse: #f8f5f733;
 
   --font-newsreader: "Newsreader";
   --font-archivo: "Archivo";

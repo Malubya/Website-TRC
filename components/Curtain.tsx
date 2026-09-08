@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/** Intro loading curtain — bronze progress line, fades out ~1.25s after mount. */
+/** Intro loading curtain — official brand mark, fades out ~1.25s after mount. */
 export default function Curtain() {
   const [hidden, setHidden] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -29,7 +29,7 @@ export default function Curtain() {
         position: "fixed",
         inset: 0,
         zIndex: 100,
-        background: "var(--color-charcoal-steel)",
+        background: "var(--color-architectural-white)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -41,15 +41,15 @@ export default function Curtain() {
       <div style={{ textAlign: "center", animation: "fadeIn .8s ease both" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/assets/logos/trc-symbol-white.png"
+          src="/assets/logos/trc-official-mark.png"
           alt=""
-          style={{ height: 44, width: "auto", display: "block", margin: "0 auto 22px" }}
+          style={{ height: 58, width: "auto", display: "block", margin: "0 auto 24px" }}
         />
         <div
           style={{
             width: 120,
             height: 1,
-            background: "rgba(247,245,241,.25)",
+            background: "rgba(36,29,38,.14)",
             overflow: "hidden",
             margin: "0 auto",
           }}
