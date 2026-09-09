@@ -2,25 +2,43 @@ import Link from "next/link";
 
 const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL ?? "https://app.trccontractors.org/";
 
+export const metadata = {
+  title: "Sign in — TRC Contractors",
+  description: "Secure access to your TRC Contractors project workspace.",
+};
+
 export default function PortalPage() {
   return (
-    <main style={{ minHeight: "100svh", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", background: "var(--color-charcoal-steel)", color: "var(--color-architectural-white)" }}>
-      <div style={{ position: "relative", minHeight: 420, overflow: "hidden" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/assets/imagery/katwe-mixed-use-front.jpeg" alt="Katwe mixed-use development designed by TRC Contractors" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top,rgba(43,44,46,.84),rgba(43,44,46,.12))" }} />
-        <Link href="/" style={{ position: "absolute", top: 32, left: "var(--gutter)", color: "inherit", textDecoration: "none", fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase" }}>← Back to TRC</Link>
-      </div>
-      <section style={{ display: "grid", alignContent: "center", padding: "clamp(64px,9vw,128px) var(--gutter)" }}>
-        <div style={{ fontSize: 11, letterSpacing: ".24em", textTransform: "uppercase", color: "var(--color-aged-bronze)" }}>Client Portal</div>
-        <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 200, fontSize: "clamp(2.8rem,6vw,5.4rem)", lineHeight: 1, margin: "22px 0" }}>Your project, securely within reach.</h1>
-        <p style={{ maxWidth: "46ch", lineHeight: 1.75, opacity: .72, margin: 0 }}>Sign in to the TRC project workspace to review drawings, reports, approvals, site updates, and project records in one secure place.</p>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 36 }}>
-          <a className="hero-cta-primary" href={portalUrl}>Open secure project portal ↗</a>
-          <a className="hero-cta-ghost" href="mailto:info@trccontractors.com?subject=Client%20portal%20access">Request access</a>
-          <a className="hero-cta-ghost" href="https://wa.me/256784853259?text=Hello%20TRC%2C%20I%20need%20help%20accessing%20my%20project%20records.">WhatsApp TRC</a>
+    <main className="portal-shell">
+      <section className="portal-panel" aria-labelledby="portal-title">
+        <Link href="/" className="portal-brand" aria-label="Back to TRC Contractors home">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/assets/logos/trc-official-mark.png" alt="TRC Contractors" />
+        </Link>
+        <div className="portal-form-wrap">
+          <Link href="/" className="portal-back">← Back to TRC</Link>
+          <p className="portal-eyebrow">Client project workspace</p>
+          <h1 id="portal-title">Welcome back.</h1>
+          <p className="portal-intro">Sign in with the account assigned to your construction project.</p>
+          <form className="portal-form" action={portalUrl}>
+            <label htmlFor="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" autoComplete="email" />
+            <div className="portal-label-row">
+              <label htmlFor="password">Password</label>
+              <a href="mailto:info@trccontractors.com?subject=Reset%20portal%20password">Forgot password?</a>
+            </div>
+            <input id="password" name="password" type="password" placeholder="Enter your password" autoComplete="current-password" />
+            <button type="submit">Sign in securely <span aria-hidden="true">→</span></button>
+          </form>
+          <p className="portal-help">Need access? <a href="mailto:info@trccontractors.com?subject=Client%20portal%20access">Request an invitation</a></p>
+          <p className="portal-security"><span aria-hidden="true">◈</span> Protected project access · Activity is recorded for accountability</p>
         </div>
-        <p style={{ marginTop: 22, fontSize: 12, lineHeight: 1.6, opacity: .55 }}>Use the email address and password assigned to your project. Access is protected by role-based permissions.</p>
+      </section>
+      <section className="portal-visual" aria-label="TRC construction project">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/assets/imagery/katwe-mixed-use-front.jpeg" alt="TRC mixed-use construction project" />
+        <div className="portal-visual-overlay" />
+        <div className="portal-visual-copy"><p>Design · Build · Roof</p><h2>Every project,<br />in one clear view.</h2></div>
       </section>
     </main>
   );
