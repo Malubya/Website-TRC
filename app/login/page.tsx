@@ -20,7 +20,7 @@ export default function PortalPage() {
           <p className="portal-eyebrow">Client project workspace</p>
           <h1 id="portal-title">Welcome back.</h1>
           <p className="portal-intro">Sign in with the account assigned to your construction project.</p>
-          <form className="portal-form" action={portalUrl}>
+          <div className="portal-form">
             <label htmlFor="email">Email address</label>
             <input id="email" name="email" type="email" placeholder="you@company.com" autoComplete="email" />
             <div className="portal-label-row">
@@ -28,8 +28,8 @@ export default function PortalPage() {
               <a href="mailto:info@trccontractors.com?subject=Reset%20portal%20password">Forgot password?</a>
             </div>
             <input id="password" name="password" type="password" placeholder="Enter your password" autoComplete="current-password" />
-            <button type="submit">Sign in securely <span aria-hidden="true">→</span></button>
-          </form>
+            <a className="portal-submit" href={portalUrl}>Sign in securely <span aria-hidden="true">→</span></a>
+          </div>
           <p className="portal-help">Need access? <a href="mailto:info@trccontractors.com?subject=Client%20portal%20access">Request an invitation</a></p>
           <p className="portal-security"><span aria-hidden="true">◈</span> Protected project access · Activity is recorded for accountability</p>
         </div>

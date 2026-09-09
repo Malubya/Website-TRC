@@ -716,9 +716,9 @@ a {
 .portal-label-row { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
 .portal-label-row label { margin: 0; }
 .portal-label-row a, .portal-help a { color: var(--color-aged-bronze); text-decoration: none; }
-.portal-form button { margin-top: 22px; border: 0; border-radius: 999px; padding: 15px 22px; background: var(--color-charcoal-steel); color: #fff; font: inherit; cursor: pointer; transition: transform .2s, background .2s; }
-.portal-form button:hover { transform: translateY(-1px); background: var(--color-aged-bronze); }
-.portal-form button span { margin-left: 10px; font-size: 18px; }
+.portal-submit { display: block; margin-top: 22px; border-radius: 999px; padding: 15px 22px; background: var(--color-charcoal-steel); color: #fff; font: inherit; text-align: center; text-decoration: none; transition: transform .2s, background .2s; }
+.portal-submit:hover { transform: translateY(-1px); background: var(--color-aged-bronze); }
+.portal-submit span { margin-left: 10px; font-size: 18px; }
 .portal-help { margin: 28px 0 0; font-size: 13px; color: #2b2c2eaa; }
 .portal-security { margin-top: 58px; font-size: 11px; color: #2b2c2e80; line-height: 1.5; }
 .portal-security span { color: var(--color-aged-bronze); margin-right: 8px; }
