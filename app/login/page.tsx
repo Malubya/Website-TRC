@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL ?? "https://trc-system.trccontractors.workers.dev";
+const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL ?? "https://app.trccontractors.org/";
 
 export default function PortalPage() {
   return (
