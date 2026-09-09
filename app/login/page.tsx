@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL ?? "https://trc-system.trccontractors.workers.dev";
+
 export default function PortalPage() {
   return (
     <main style={{ minHeight: "100svh", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", background: "var(--color-charcoal-steel)", color: "var(--color-architectural-white)" }}>
@@ -11,12 +13,14 @@ export default function PortalPage() {
       </div>
       <section style={{ display: "grid", alignContent: "center", padding: "clamp(64px,9vw,128px) var(--gutter)" }}>
         <div style={{ fontSize: 11, letterSpacing: ".24em", textTransform: "uppercase", color: "var(--color-aged-bronze)" }}>Client Portal</div>
-        <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 200, fontSize: "clamp(2.8rem,6vw,5.4rem)", lineHeight: 1, margin: "22px 0" }}>Project access is arranged directly.</h1>
-        <p style={{ maxWidth: "46ch", lineHeight: 1.75, opacity: .72, margin: 0 }}>The online portal is being prepared. Existing clients can request drawings, reports, approvals, and project records directly from the TRC team.</p>
+        <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 200, fontSize: "clamp(2.8rem,6vw,5.4rem)", lineHeight: 1, margin: "22px 0" }}>Your project, securely within reach.</h1>
+        <p style={{ maxWidth: "46ch", lineHeight: 1.75, opacity: .72, margin: 0 }}>Sign in to the TRC project workspace to review drawings, reports, approvals, site updates, and project records in one secure place.</p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 36 }}>
-          <a className="hero-cta-primary" href="mailto:info@trccontractors.com?subject=Client%20portal%20access">Request access</a>
+          <a className="hero-cta-primary" href={portalUrl}>Open secure project portal ↗</a>
+          <a className="hero-cta-ghost" href="mailto:info@trccontractors.com?subject=Client%20portal%20access">Request access</a>
           <a className="hero-cta-ghost" href="https://wa.me/256784853259?text=Hello%20TRC%2C%20I%20need%20help%20accessing%20my%20project%20records.">WhatsApp TRC</a>
         </div>
+        <p style={{ marginTop: 22, fontSize: 12, lineHeight: 1.6, opacity: .55 }}>Use the email address and password assigned to your project. Access is protected by role-based permissions.</p>
       </section>
     </main>
   );
