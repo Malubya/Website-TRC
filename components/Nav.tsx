@@ -81,7 +81,7 @@ export default function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) 
 
         <div className={styles.links}>
           {sections.map(({ id, label }) => <Link key={id} href={`/#${id}`} className={linkClass(id)}>{label}</Link>)}
-          <Link href="/blog" className={`${themed(styles.link)}${pathname === "/blog" ? ` ${styles.active}` : ""}`}>Journal</Link>
+          <Link href="/blog" className={`${themed(styles.link)}${pathname === "/blog" ? ` ${styles.active}` : ""}`}>Blogs</Link>
           <Link href="/login" className={themed(styles.link)}>Portal Login</Link>
           <Link href="/#contact" className={`${themed(styles.cta)}${active === "contact" ? ` ${styles.active}` : ""}`}>Start a Project</Link>
         </div>
@@ -98,7 +98,7 @@ export default function Nav({ alwaysSolid = false }: { alwaysSolid?: boolean }) 
           </Link>
         ))}
         <Link href="/blog" className={`${styles.mobileMenuLink}${pathname === "/blog" ? ` ${styles.active}` : ""}`} onClick={() => setMenuOpen(false)}>
-          <span>0{sections.length + 1}</span>Journal
+          <span>0{sections.length + 1}</span>Blogs
         </Link>
         <div className={styles.mobileActions}>
           <Link href="/login" className={styles.mobilePortal} onClick={() => setMenuOpen(false)}>Client Portal</Link>

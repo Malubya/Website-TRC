@@ -8,8 +8,8 @@ export default function ArticleNotFound() {
     <Nav alwaysSolid />
     <section className={styles.notFound}>
       <h1>Article not found.</h1>
-      <p>This story may have been unpublished or its link may be out of date. Browse the rest of the journal instead.</p>
-      <Link href="/blog">Back to the journal</Link>
+      <p>This story may have been unpublished or its link may be out of date. Browse the rest of the blogs instead.</p>
+      <Link href="/blog">Back to the blogs</Link>
     </section>
     <Footer />
   </main>;

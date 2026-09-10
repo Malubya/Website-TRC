@@ -13,7 +13,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
   const sp = await searchParams;
   const filtered = Boolean(topicFromSlug(sp.topic)) || (sp.page && sp.page !== "1");
   return {
-    title: "Journal | TRC Contractors",
+    title: "Blogs | TRC Contractors",
     description: "Ideas, field notes, material intelligence, and project stories from TRC Contractors Design Studio in Uganda.",
     alternates: { canonical: "/blog" },
     // A topic filter or a page beyond the first is a view of the same
@@ -77,12 +77,12 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
   return <main className={styles.page} id="top">
     <Nav alwaysSolid />
     <header className={styles.hero}>
-      <div className={styles.heroCopy}><span className={styles.eyebrow}>The TRC Journal · Uganda</span><h1>Ideas built<br/>to <em>endure.</em></h1><p>Field notes, material intelligence, design thinking, and the stories behind the structures shaping tomorrow.</p></div>
+      <div className={styles.heroCopy}><span className={styles.eyebrow}>The TRC Blogs · Uganda</span><h1>Ideas built<br/>to <em>endure.</em></h1><p>Field notes, material intelligence, design thinking, and the stories behind the structures shaping tomorrow.</p></div>
       <div className={styles.heroShape}><CutMark/><span>Design<br/>Build<br/>Roof</span></div>
       <svg className={styles.heroCut} viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true"><path d="M0 75C230 145 425 8 685 67c250 57 444 83 755-21v84H0Z"/></svg>
     </header>
 
-    <nav className={styles.topics} aria-label="Journal topics">
+    <nav className={styles.topics} aria-label="Blogs topics">
       <span>Explore by topic</span>
       <Link href="/blog#stories" className={!topic ? styles.active : ""} aria-current={!topic ? "page" : undefined}>All stories</Link>
       {JOURNAL_TOPICS.map((item) => (
@@ -93,9 +93,9 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
     {allPosts.length === 0 ? (
       <section className={styles.featured} id="stories">
         <div className={styles.featuredCopy}>
-          <div className={styles.meta}><span>Journal</span></div>
+          <div className={styles.meta}><span>Blogs</span></div>
           <h2>New stories<br/>are on the way.</h2>
-          <p>Our team is preparing the first articles for the journal. Check back soon for field notes, material intelligence, and project stories from across Uganda.</p>
+          <p>Our team is preparing the first articles for the blogs. Check back soon for field notes, material intelligence, and project stories from across Uganda.</p>
         </div>
       </section>
     ) : filtered.length === 0 ? (
@@ -119,7 +119,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
     {!featured && filtered.length > 0 && (
       <section className={styles.featured} id="stories" style={{ paddingBottom: 0 }}>
         <div className={styles.featuredCopy} style={{ gridColumn: "1/-1" }}>
-          <div className={styles.meta}><span>{topic || "Journal"}</span></div>
+          <div className={styles.meta}><span>{topic || "Blogs"}</span></div>
           <h2>{topic ? `More from ${topic.toLowerCase()}.` : "The archive."}</h2>
         </div>
       </section>
@@ -134,7 +134,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
             return (
               <Reveal as="article" key={post.id} className={styles.card} delayMs={Math.min(index, 5) * 60}>
                 <Link href={`/blog/${post.slug}`} className={styles.cardImage}><Image src={backdropFor(post.slug)} alt="" fill sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 33vw"/><span/><b>{number}</b></Link>
-                <div className={styles.meta}><span>{post.category || "Journal"}</span><time>{formatPublishedDate(post.publishedAt)}</time></div>
+                <div className={styles.meta}><span>{post.category || "Blogs"}</span><time>{formatPublishedDate(post.publishedAt)}</time></div>
                 <h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>
                 <p>{post.excerpt || post.body.slice(0, 140)}</p>
                 <div className={styles.cardFoot}><Link href={`/blog/${post.slug}`}>Read article <b>→</b></Link><small>{readingTime(post.body)}</small></div>
@@ -144,7 +144,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
         </div>
 
         {totalPages > 1 && (
-          <nav className={styles.pagination} aria-label="Journal pages">
+          <nav className={styles.pagination} aria-label="Blogs pages">
             {page > 1 ? <Link href={pageHref(page - 1)}>← Newer</Link> : <span />}
             <span className={styles.pageIndicator}>Page {page} of {totalPages}</span>
             {page < totalPages ? <Link href={pageHref(page + 1)}>Older →</Link> : <span />}

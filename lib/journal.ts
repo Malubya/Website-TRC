@@ -17,7 +17,7 @@ export type JournalPost = {
   publishedAt: string | null;
 };
 
-const API_BASE = process.env.TRC_SYSTEM_API_URL || "http://127.0.0.1:3001";
+const API_BASE = process.env.TRC_SYSTEM_API_URL || "https://trc-system.shelvinjoe11.workers.dev";
 
 // Must match the check constraint on blog_posts.category — see
 // ../TRC Contractors React/supabase/migrations/20260829150000_add_blog_post_category.sql

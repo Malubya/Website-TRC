@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!post) return { title: "Article not found | TRC Contractors" };
   const image = backdropFor(post.slug);
   return {
-    title: `${post.title} | The TRC Journal`,
+    title: `${post.title} | The TRC Blogs`,
     description: post.excerpt || undefined,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
@@ -85,8 +85,8 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
     <Nav alwaysSolid />
     <header className={styles.hero}>
       <div className={styles.heroInner}>
-        <Link href="/blog" className={styles.back}>← The TRC Journal</Link>
-        <div className={styles.meta}><span>{post.category || "Journal"}</span><time>{formatPublishedDate(post.publishedAt)}</time><span>{readingTime(post.body)}</span></div>
+        <Link href="/blog" className={styles.back}>← The TRC Blogs</Link>
+        <div className={styles.meta}><span>{post.category || "Blogs"}</span><time>{formatPublishedDate(post.publishedAt)}</time><span>{readingTime(post.body)}</span></div>
         <h1>{post.title}</h1>
         {post.excerpt && <p className={styles.excerpt}>{post.excerpt}</p>}
       </div>
@@ -105,7 +105,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
           {related.map((item) => (
             <Link key={item.id} href={`/blog/${item.slug}`} className={styles.relatedCard}>
               <span className={styles.relatedImage}><Image src={backdropFor(item.slug)} alt="" fill sizes="(max-width: 700px) 100vw, 33vw"/></span>
-              <span className={styles.relatedMeta}>{item.category || "Journal"}</span>
+              <span className={styles.relatedMeta}>{item.category || "Blogs"}</span>
               <strong>{item.title}</strong>
             </Link>
           ))}
