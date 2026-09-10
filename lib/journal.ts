@@ -37,8 +37,6 @@ export function topicFromSlug(slug: string | undefined): JournalTopic | undefine
 // changes rarely enough that this is a good trade, and it means the page
 // keeps rendering the last-known posts if the system API is briefly
 // unreachable, instead of failing the whole page load.
-const REVALIDATE_SECONDS = 60;
-
 export function readingTime(body: string): string {
   const words = body.trim().split(/\s+/).filter(Boolean).length;
   const minutes = Math.max(1, Math.round(words / 200));
