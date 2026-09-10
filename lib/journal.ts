@@ -14,10 +14,12 @@ export type JournalPost = {
   excerpt: string;
   body: string;
   category: string | null;
+  coverImageUrl: string | null;
+  coverImageAlt: string;
   publishedAt: string | null;
 };
 
-const API_BASE = process.env.TRC_SYSTEM_API_URL || "https://trc-system.shelvinjoe11.workers.dev";
+const API_BASE = process.env.TRC_SYSTEM_API_URL || "https://app.trccontractors.org";
 
 // Must match the check constraint on blog_posts.category — see
 // ../TRC Contractors React/supabase/migrations/20260829150000_add_blog_post_category.sql
@@ -53,7 +55,7 @@ export async function getJournalPosts(): Promise<JournalPost[]> {
     const response = await fetch(`${API_BASE}/api/public/blog-posts`, { cache: "no-store" });
     if (!response.ok) return [];
     const data = (await response.json()) as { posts?: JournalPost[] };
-    return data.posts || [];
+    return (data.posts || []).map((post) => ({ ...post, coverImageUrl: post.coverImageUrl ? new URL(post.coverImageUrl, API_BASE).toString() : null, coverImageAlt: post.coverImageAlt || "" }));
   } catch {
     // The system API is a separate deployment from this site; if it's down
     // or unreachable, the journal should render empty rather than take the
@@ -67,7 +69,7 @@ export async function getJournalPost(slug: string): Promise<JournalPost | null> 
     const response = await fetch(`${API_BASE}/api/public/blog-posts/${encodeURIComponent(slug)}`, { cache: "no-store" });
     if (!response.ok) return null;
     const data = (await response.json()) as { post?: JournalPost };
-    return data.post || null;
+    return data.post ? { ...data.post, coverImageUrl: data.post.coverImageUrl ? new URL(data.post.coverImageUrl, API_BASE).toString() : null, coverImageAlt: data.post.coverImageAlt || "" } : null;
   } catch {
     return null;
   }

@@ -46,6 +46,7 @@ function backdropFor(slug: string) {
   for (let i = 0; i < slug.length; i += 1) hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
   return backdrops[hash % backdrops.length];
 }
+function imageFor(post: { slug: string; coverImageUrl: string | null }) { return post.coverImageUrl || backdropFor(post.slug); }
 
 function CutMark() {
   return <svg className={styles.cutMark} viewBox="0 0 180 180" aria-hidden="true"><path d="M15 90A75 75 0 0 1 90 15v75Z"/><path d="M90 90h75a75 75 0 0 1-75 75Z"/><circle cx="90" cy="90" r="36"/></svg>;
@@ -111,7 +112,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
 
     {allPosts.length > 0 && filtered.length > 0 && featured && (
       <section className={styles.featured} id="stories">
-        <Link href={`/blog/${featured.slug}`} className={styles.featuredImage} aria-label={`Read ${featured.title}`}><Image src={backdropFor(featured.slug)} alt="" fill priority sizes="(max-width: 800px) 100vw, 60vw"/><span className={styles.imageCut}/><b>01</b></Link>
+        <Link href={`/blog/${featured.slug}`} className={styles.featuredImage} aria-label={`Read ${featured.title}`}><Image src={imageFor(featured)} alt={featured.coverImageAlt || ""} fill priority sizes="(max-width: 800px) 100vw, 60vw"/><span className={styles.imageCut}/><b>01</b></Link>
         <div className={styles.featuredCopy}><div className={styles.meta}><span>{featured.category || "Latest"}</span><time>{formatPublishedDate(featured.publishedAt)}</time></div><h2>{featured.title}</h2><p>{featured.excerpt || featured.body.slice(0, 180)}</p><Link href={`/blog/${featured.slug}`} className={styles.readLink}>Read the story <span>↗</span></Link><small>{readingTime(featured.body)}</small></div>
       </section>
     )}
@@ -133,7 +134,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
             const number = String(gridStart + index + 1).padStart(2, "0");
             return (
               <Reveal as="article" key={post.id} className={styles.card} delayMs={Math.min(index, 5) * 60}>
-                <Link href={`/blog/${post.slug}`} className={styles.cardImage}><Image src={backdropFor(post.slug)} alt="" fill sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 33vw"/><span/><b>{number}</b></Link>
+                <Link href={`/blog/${post.slug}`} className={styles.cardImage}><Image src={imageFor(post)} alt={post.coverImageAlt || ""} fill sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 33vw"/><span/><b>{number}</b></Link>
                 <div className={styles.meta}><span>{post.category || "Blogs"}</span><time>{formatPublishedDate(post.publishedAt)}</time></div>
                 <h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3>
                 <p>{post.excerpt || post.body.slice(0, 140)}</p>
