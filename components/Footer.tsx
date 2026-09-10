@@ -31,6 +31,14 @@ export default function Footer() {
         overflow: "hidden",
       }}
     >
+      <div className="footer-signal">
+        <div>
+          <span className="footer-signal-kicker">Built for the work ahead</span>
+          <h2>Clear decisions.<br />Solid delivery.</h2>
+        </div>
+        <Link href="/login" className="footer-signal-action">Open project portal <span aria-hidden="true">↗</span></Link>
+      </div>
+
       <div
         style={{
           display: "grid",
@@ -142,6 +150,13 @@ export default function Footer() {
         }}
       >
         TRC Contractors
+      </div>
+
+      <div className="footer-mascot" aria-hidden="true">
+        <div className="footer-mascot-helmet" />
+        <div className="footer-mascot-face"><span /><span /></div>
+        <div className="footer-mascot-body"><i /><i /><i /></div>
+        <div className="footer-mascot-wave">✦</div>
       </div>
     </footer>
   );
