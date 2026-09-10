@@ -27,7 +27,6 @@ function backdropFor(slug: string) {
   for (let i = 0; i < slug.length; i += 1) hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
   return backdrops[hash % backdrops.length];
 }
-function imageFor(post: { slug: string; coverImageUrl: string | null }) { return post.coverImageUrl || backdropFor(post.slug); }
 
 type Params = { slug: string };
 
@@ -35,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const post = await getJournalPost(slug);
   if (!post) return { title: "Article not found | TRC Contractors" };
-  const image = imageFor(post);
+  const image = post.coverImageUrl || backdropFor(post.slug);
   return {
     title: `${post.title} | The TRC Blogs`,
     description: post.excerpt || undefined,
@@ -93,7 +92,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
       </div>
     </header>
 
-    <div className={styles.cover}><Image src={imageFor(post)} alt={post.coverImageAlt || ""} fill priority sizes="(max-width: 900px) 100vw, 900px"/></div>
+    <div className={styles.cover}>{post.coverImageUrl?<Image src={post.coverImageUrl} alt={post.coverImageAlt || ""} fill priority sizes="(max-width: 900px) 100vw, 900px"/>:<span className={styles.coverPlaceholder} aria-hidden="true"><i>TRC</i><em>Article cover awaiting upload</em></span>}</div>
 
     <article className={styles.body}>
       {paragraphs.length > 0 ? paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>) : <p>{post.body}</p>}
@@ -105,7 +104,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
         <div className={styles.relatedGrid}>
           {related.map((item) => (
             <Link key={item.id} href={`/blog/${item.slug}`} className={styles.relatedCard}>
-              <span className={styles.relatedImage}><Image src={imageFor(item)} alt={item.coverImageAlt || ""} fill sizes="(max-width: 700px) 100vw, 33vw"/></span>
+              <span className={styles.relatedImage}>{item.coverImageUrl?<Image src={item.coverImageUrl} alt={item.coverImageAlt || ""} fill sizes="(max-width: 700px) 100vw, 33vw"/>:<span className={styles.coverPlaceholder} aria-hidden="true"><i>TRC</i></span>}</span>
               <span className={styles.relatedMeta}>{item.category || "Blogs"}</span>
               <strong>{item.title}</strong>
             </Link>

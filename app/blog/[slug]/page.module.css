@@ -10,6 +10,11 @@
 
 .cover { position: relative; margin: 0 var(--gutter); height: clamp(280px, 42vw, 560px); border-radius: 3px 80px 3px 3px; overflow: hidden; background: #ddd; }
 .cover img { width: 100%; height: 100%; object-fit: cover; }
+.coverPlaceholder { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:space-between; padding:clamp(24px,4vw,54px); background:linear-gradient(145deg,#342c31,#7c3b61 60%,#b7894b); color:white; overflow:hidden; }
+.coverPlaceholder::before { content:""; position:absolute; width:70%; aspect-ratio:1; right:-18%; top:-25%; border:1px solid rgba(255,255,255,.25); border-radius:50%; }
+.coverPlaceholder i,.coverPlaceholder em { position:relative; z-index:1; font-style:normal; text-transform:uppercase; }
+.coverPlaceholder i { font-family:var(--font-display); font-size:clamp(2.2rem,5vw,4.5rem); letter-spacing:-.05em; }
+.coverPlaceholder em { font-size:9px; letter-spacing:.16em; opacity:.8; }
 
 .body { max-width: 720px; margin: clamp(60px, 8vw, 110px) auto; padding: 0 var(--gutter); }
 .body p { margin: 0 0 1.6em; font-size: clamp(1rem, 1.15vw, 1.15rem); line-height: 1.85; }
