@@ -32,11 +32,12 @@ export default function PortalPage() {
           </div>
           <p className="portal-help">Need access? <a href="mailto:info@trccontractors.com?subject=Client%20portal%20access">Request an invitation</a></p>
           <p className="portal-security"><span aria-hidden="true">◈</span> Protected project access · Activity is recorded for accountability</p>
+          <nav className="portal-legal" aria-label="Legal information"><Link href="/legal/cookies">Cookie Policy</Link><span>·</span><Link href="/legal/privacy">Privacy Policy</Link><span>·</span><Link href="/legal/terms">Terms and Conditions</Link></nav>
         </div>
       </section>
       <section className="portal-visual" aria-label="TRC construction project">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/assets/imagery/katwe-mixed-use-front.jpeg" alt="TRC mixed-use construction project" />
+        <img src="/assets/imagery/trc-portal-login.jpg" alt="Construction team at a TRC project" />
         <div className="portal-visual-overlay" />
         <div className="portal-visual-copy"><p>Design · Build · Roof</p><h2>Every project,<br />in one clear view.</h2></div>
       </section>

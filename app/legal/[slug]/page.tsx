@@ -1,0 +1,15 @@
+import Link from "next/link";
+
+const pages = {
+  cookies: { title: "Cookie Policy", intro: "How TRC Contractors uses cookies and similar technologies.", sections: ["We use essential cookies to keep the website secure, remember preferences, and deliver the portal experience. We do not sell personal information.", "You can control non-essential cookies through your browser settings. Disabling essential cookies may affect sign-in and security features."] },
+  privacy: { title: "Privacy Policy", intro: "How TRC Contractors handles information submitted through this website.", sections: ["TRC Contractors collects only the information needed to respond to enquiries, provide project access, and operate construction collaboration services.", "Project information is protected with role-based access controls. We retain records for legitimate business, contractual, and accountability purposes and do not sell personal information."] },
+  terms: { title: "Terms and Conditions", intro: "Terms for using the TRC Contractors website and project workspace.", sections: ["Use the project workspace only with an account assigned to you. Keep credentials private and notify TRC Contractors promptly about suspected unauthorised access.", "Project records, drawings, approvals, and site updates are provided for the authorised project team and must not be redistributed without permission."] },
+} as const;
+
+export function generateStaticParams() { return Object.keys(pages).map((slug) => ({ slug })); }
+
+export default async function LegalPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const page = pages[slug as keyof typeof pages] ?? pages.privacy;
+  return <main className="legal-page"><Link href="/login" className="legal-back">← Back to secure portal</Link><p className="portal-eyebrow">TRC Contractors</p><h1>{page.title}</h1><p className="legal-intro">{page.intro}</p>{page.sections.map((section) => <p key={section}>{section}</p>)}<small>Last updated: September 2026</small></main>;
+}
