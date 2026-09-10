@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   creator: "TRC Contractors Ltd.",
   publisher: "TRC Contractors Ltd.",
   icons: { icon: "/assets/logos/trc-official-mark.png" },
+  manifest: "/manifest.webmanifest",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   openGraph: {
