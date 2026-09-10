@@ -52,7 +52,7 @@ export function formatPublishedDate(publishedAt: string | null): string {
 
 export async function getJournalPosts(): Promise<JournalPost[]> {
   try {
-    const response = await fetch(`${API_BASE}/api/public/blog-posts`, { next: { revalidate: REVALIDATE_SECONDS } });
+    const response = await fetch(`${API_BASE}/api/public/blog-posts`, { cache: "no-store" });
     if (!response.ok) return [];
     const data = (await response.json()) as { posts?: JournalPost[] };
     return data.posts || [];
@@ -66,7 +66,7 @@ export async function getJournalPosts(): Promise<JournalPost[]> {
 
 export async function getJournalPost(slug: string): Promise<JournalPost | null> {
   try {
-    const response = await fetch(`${API_BASE}/api/public/blog-posts/${encodeURIComponent(slug)}`, { next: { revalidate: REVALIDATE_SECONDS } });
+    const response = await fetch(`${API_BASE}/api/public/blog-posts/${encodeURIComponent(slug)}`, { cache: "no-store" });
     if (!response.ok) return null;
     const data = (await response.json()) as { post?: JournalPost };
     return data.post || null;
