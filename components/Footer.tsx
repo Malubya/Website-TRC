@@ -14,6 +14,13 @@ const serviceLinks = [
   { href: "/#services", label: "Restoration & fit-out" },
 ];
 
+const companyLinks = [
+  { href: "/#about", label: "About TRC" },
+  { href: "/blog", label: "Blogs" },
+  { href: "/#contact", label: "Contact us" },
+  { href: "/login", label: "Project portal" },
+];
+
 const linkStyle: React.CSSProperties = {
   fontSize: 14,
   color: "var(--color-architectural-white)",
@@ -60,6 +67,17 @@ export default function Footer() {
             Navigate
           </div>
           {navLinks.map((l) => (
+            <Link key={l.label} href={l.href} style={linkStyle} className="footer-link">
+              {l.label}
+            </Link>
+          ))}
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 13 }}>
+          <div style={{ fontSize: 10, letterSpacing: ".24em", textTransform: "uppercase", opacity: 0.45 }}>
+            Company
+          </div>
+          {companyLinks.map((l) => (
             <Link key={l.label} href={l.href} style={linkStyle} className="footer-link">
               {l.label}
             </Link>
@@ -122,6 +140,16 @@ export default function Footer() {
         </div>
       </div>
 
+      <div className="footer-bottom">
+        <div className="footer-legal-links" aria-label="Legal and trust links">
+          <Link href="/legal/terms">Terms and Conditions</Link>
+          <Link href="/legal/privacy">Privacy Policy</Link>
+          <Link href="/legal/cookies">Cookie Policy</Link>
+          <Link href="/legal/accessibility">Accessibility</Link>
+          <Link href="/legal/security">Security</Link>
+        </div>
+      </div>
+
       <div
         style={{
           marginTop: "clamp(40px,6vw,80px)",
@@ -136,8 +164,8 @@ export default function Footer() {
           opacity: 0.42,
         }}
       >
-        <span>© 2026 TRC Contractors</span>
-        <span>Kampala, Uganda</span>
+        <span>© 2026 TRC Contractors Ltd.</span>
+        <span>Kampala, Uganda · Built for better work</span>
       </div>
 
       <div
