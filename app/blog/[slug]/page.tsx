@@ -7,26 +7,7 @@ import Footer from "@/components/Footer";
 import { formatPublishedDate, getJournalPost, getJournalPosts, getRelatedPosts, readingTime } from "@/lib/journal";
 import styles from "./page.module.css";
 
-const SITE_URL = "https://trccontractors.com";
-
-// Cover photography rotation, matching /blog — see the comment there for why
-// posts don't yet carry their own uploaded image.
-const backdrops = [
-  "/assets/imagery/katwe-mixed-use-aerial.jpeg",
-  "/assets/imagery/integrated-farm-view-13.jpg",
-  "/assets/imagery/material-detail-copper-stone.png",
-  "/assets/imagery/site-progress-team.jpeg",
-  "/assets/imagery/studio-apartments-view-4.jpg",
-  "/assets/imagery/diaspora-outreach.jpeg",
-  "/assets/imagery/residential-design-modern.jpeg",
-  "/assets/imagery/highland-exterior.png",
-];
-
-function backdropFor(slug: string) {
-  let hash = 0;
-  for (let i = 0; i < slug.length; i += 1) hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
-  return backdrops[hash % backdrops.length];
-}
+const SITE_URL = "https://trccontractors.org";
 
 type Params = { slug: string };
 
@@ -34,20 +15,21 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const post = await getJournalPost(slug);
   if (!post) return { title: "Article not found | TRC Contractors" };
-  const image = post.coverImageUrl || backdropFor(post.slug);
+  const image = post.coverImageUrl || undefined;
   return {
     title: `${post.title} | The TRC Blogs`,
     description: post.excerpt || undefined,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: "article",
+      url: `${SITE_URL}/blog/${post.slug}`,
       title: post.title,
       description: post.excerpt || undefined,
-      images: [image],
+      ...(image ? { images: [image] } : {}),
       publishedTime: post.publishedAt || undefined,
       section: post.category || undefined,
     },
-    twitter: { card: "summary_large_image", title: post.title, description: post.excerpt || undefined, images: [image] },
+    twitter: { card: image ? "summary_large_image" : "summary", title: post.title, description: post.excerpt || undefined, ...(image ? { images: [image] } : {}) },
   };
 }
 
@@ -58,14 +40,14 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
 
   const paragraphs = post.body.split(/\n{2,}/).map((block) => block.trim()).filter(Boolean);
   const related = getRelatedPosts(allPosts, post);
-  const image = post.coverImageUrl || `${SITE_URL}${backdropFor(post.slug)}`;
+  const image = post.coverImageUrl || undefined;
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt || undefined,
-    image: [image],
+    ...(image ? { image: [image] } : {}),
     datePublished: post.publishedAt || undefined,
     dateModified: post.publishedAt || undefined,
     articleSection: post.category || undefined,

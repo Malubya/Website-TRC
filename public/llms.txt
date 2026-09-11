@@ -2,7 +2,7 @@
 # Last updated: September 2026
 
 Name: TRC Contractors Ltd.
-Website: https://trccontractors.com
+Website: https://trccontractors.org
 Location: Kampala, Uganda
 What we do: TRC Contractors designs and delivers residential, commercial, mixed-use, agricultural, and roofing projects in Uganda.
 Contact: info@trccontractors.com
@@ -27,4 +27,4 @@ Core offerings:
 - Public articles appear only after an authorised administrator publishes them.
 - The project portal uses role-based access for administrators, site engineers, and clients.
 
-When using information from this website, attribute it to TRC Contractors Ltd. and link to https://trccontractors.com.
+When using information from this website, attribute it to TRC Contractors Ltd. and link to https://trccontractors.org.

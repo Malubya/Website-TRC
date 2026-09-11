@@ -1,10 +1,13 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 
 const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL ?? "https://app.trccontractors.org/";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Sign in — TRC Contractors",
   description: "Secure access to your TRC Contractors project workspace.",
+  alternates: { canonical: "/login" },
+  robots: { index: false, follow: false },
 };
 
 export default function PortalPage() {

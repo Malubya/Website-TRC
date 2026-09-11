@@ -1,4 +1,6 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 const pages = {
   cookies: { title: "Cookie Policy", intro: "How TRC Contractors uses cookies and similar technologies.", sections: ["We use essential cookies to keep the website secure, remember preferences, and deliver the portal experience. We do not sell personal information.", "You can control non-essential cookies through your browser settings. Disabling essential cookies may affect sign-in and security features."] },
@@ -10,8 +12,20 @@ const pages = {
 
 export function generateStaticParams() { return Object.keys(pages).map((slug) => ({ slug })); }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const page = pages[slug as keyof typeof pages];
+  if (!page) return {};
+  return {
+    title: `${page.title} | TRC Contractors`,
+    description: page.intro,
+    alternates: { canonical: `/legal/${slug}` },
+  };
+}
+
 export default async function LegalPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const page = pages[slug as keyof typeof pages] ?? pages.privacy;
+  const page = pages[slug as keyof typeof pages];
+  if (!page) notFound();
   return <main className="legal-page"><header className="legal-header"><Link href="/" className="legal-brand"><img src="/assets/logos/trc-official-mark.png" alt="TRC Contractors" /></Link><Link href="/login" className="legal-back">← Back to secure portal</Link></header><div className="legal-layout"><aside><span>TRC / Legal</span><nav aria-label="Legal pages">{Object.entries(pages).map(([key, value]) => <Link key={key} className={key === slug ? "is-current" : ""} href={`/legal/${key}`}>{value.title}</Link>)}</nav></aside><article className="legal-copy"><p className="portal-eyebrow">TRC Contractors · Information</p><h1>{page.title}</h1><p className="legal-intro">{page.intro}</p>{page.sections.map((section, index) => <section key={section}><span>0{index + 1}</span><p>{section}</p></section>)}<div className="legal-meta"><small>Last updated: September 2026</small><Link href="mailto:info@trccontractors.com">Questions? Contact TRC →</Link></div></article></div></main>;
 }

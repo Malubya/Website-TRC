@@ -24,29 +24,6 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
   };
 }
 
-// Articles are written and published by admins in the TRC Contractors System
-// (the BIMS portal's "Publishing desk"), not edited here — this page only
-// renders whatever is currently published. Cover photography isn't part of
-// that admin workflow yet, so each post is paired with one of the site's own
-// project photos, chosen deterministically from its slug so the pairing is
-// stable across visits rather than reshuffling on every request.
-const backdrops = [
-  "/assets/imagery/katwe-mixed-use-aerial.jpeg",
-  "/assets/imagery/integrated-farm-view-13.jpg",
-  "/assets/imagery/material-detail-copper-stone.png",
-  "/assets/imagery/site-progress-team.jpeg",
-  "/assets/imagery/studio-apartments-view-4.jpg",
-  "/assets/imagery/diaspora-outreach.jpeg",
-  "/assets/imagery/residential-design-modern.jpeg",
-  "/assets/imagery/highland-exterior.png",
-];
-
-function backdropFor(slug: string) {
-  let hash = 0;
-  for (let i = 0; i < slug.length; i += 1) hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
-  return backdrops[hash % backdrops.length];
-}
-
 function CutMark() {
   return <svg className={styles.cutMark} viewBox="0 0 180 180" aria-hidden="true"><path d="M15 90A75 75 0 0 1 90 15v75Z"/><path d="M90 90h75a75 75 0 0 1-75 75Z"/><circle cx="90" cy="90" r="36"/></svg>;
 }
