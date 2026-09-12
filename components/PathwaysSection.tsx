@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Reveal from "./Reveal";
 
+const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL ?? "https://app.trccontractors.org/";
+
 const pathways = [
   { number: "01", title: "Start a Project", body: "Planning a custom home, commercial complex, specialized farm facility, or roof structure? Share your site details, project scope, and vision with us.", action: "Send your brief", href: "/#contact", tone: "bronze", icon: "brief" },
   { number: "02", title: "Explore Our Work", body: "View selected mixed-use, residential, commercial, and agricultural designs developed by TRC Contractors Design Studio.", action: "View projects", href: "/#work", tone: "charcoal", icon: "building" },
   { number: "03", title: "Build From Abroad", body: "For Ugandans in the diaspora: coordinate your project through a direct local liaison, documented approvals, and progress updates.", action: "WhatsApp the team", href: "https://wa.me/256784853259?text=Hello%20TRC%2C%20I%20am%20abroad%20and%20would%20like%20to%20discuss%20a%20project%20in%20Uganda.", tone: "travertine", icon: "globe" },
-  { number: "04", title: "Client Access", body: "Already working with TRC? Request project drawings, reports, approvals, and access to your current project records.", action: "Open client access", href: "/login", tone: "white", icon: "portal" },
+  { number: "04", title: "Client Access", body: "Already working with TRC? Request project drawings, reports, approvals, and access to your current project records.", action: "Open client access", href: portalUrl, tone: "white", icon: "portal" },
 ];
 
 function PathwayIcon({ type }: { type: string }) {

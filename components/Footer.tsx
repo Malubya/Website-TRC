@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL ?? "https://app.trccontractors.org/";
+
 const navLinks = [
   { href: "/#work", label: "Work" },
   { href: "/#practice", label: "Practice" },
@@ -18,7 +20,7 @@ const companyLinks = [
   { href: "/#about", label: "About TRC" },
   { href: "/blog", label: "Blogs" },
   { href: "/#contact", label: "Contact us" },
-  { href: "/login", label: "Project portal" },
+  { href: portalUrl, label: "Project portal" },
 ];
 
 const linkStyle: React.CSSProperties = {
@@ -43,7 +45,7 @@ export default function Footer() {
           <span className="footer-signal-kicker">Built for the work ahead</span>
           <h2>Clear decisions.<br />Solid delivery.</h2>
         </div>
-        <Link href="/login" className="footer-signal-action">Open project portal <span aria-hidden="true">↗</span></Link>
+        <Link href={portalUrl} className="footer-signal-action">Open project portal <span aria-hidden="true">↗</span></Link>
       </div>
 
       <div
